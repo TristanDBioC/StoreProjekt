@@ -17,17 +17,17 @@ const firebaseConfig = {
 
 
   // init firebase app
-  initializeApp(firebaseConfig)
-  console.log("initialize app4")
+initializeApp(firebaseConfig)
+console.log("initialize app4")
 
   // init firestore
-  const db = getFirestore()
+const db = getFirestore()
   
 
   // collection reference
-  const colRef = collection(db, 'user')
+const colRef = collection(db, 'user')
 
-// get cikkectuib data
+  // get cikkectuib data
 getDocs(colRef).then((snapshot) => {
   let user = []
   snapshot.docs.forEach((doc) => {
