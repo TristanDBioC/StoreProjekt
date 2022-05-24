@@ -31,8 +31,8 @@
         <div class="custom-select" style="width:200px;">
             <select>
                 <option value="0">Select Type:</option>
-                <option value="Tops">Tops</option>
-                <option value="Bottoms">Bottoms</option>
+                <option value="Top">Top</option>
+                <option value="Bottom">Bottom</option>
             </select>
         </div>
 
@@ -46,22 +46,28 @@
                 <option value="Blue">Blue</option>
                 <option value="Indigo">Indigo</option>
                 <option value="Violet">Violet</option>
+                <option value="Black">Black</option>
+                <option value="White">White</option>
+                <option value="Brown">Brown</option>
+                <option value="Grey">Grey</option>
             </select>
         </div>
 
         <div class="custom-select" style="width:200px;">
             <select>
                 <option value="0">Select Size:</option>
+                <option value="XS">XS</option>
                 <option value="S">S</option>
                 <option value="M">M</option>
                 <option value="L">L</option>
+                <option value="XL">XL</option>
             </select>
         </div>
 
         <br><br><br><br><br>
 
-        Upload an image of your product:
-        <input type="file" name="uploadImage" class="uploadImage"><br>
+        Upload images of your product:
+        <input required="required "type="file" class="uploadImage" name="prodImg" multiple><br>
 
         Stock <input required="required" placeholder="0" type="number" class="stock" name="stock" min="1" max=""><br>
 

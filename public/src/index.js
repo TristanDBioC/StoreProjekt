@@ -18,7 +18,7 @@ const firebaseConfig = {
 
   // init firebase app
 initializeApp(firebaseConfig)
-console.log("initialize app4")
+console.log("fsdfssdfa")
 
   // init firestore
 const db = getFirestore()
