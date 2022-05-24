@@ -1,0 +1,184 @@
+@import url('http://fonts.cdnfonts.com/css/raleway-5');
+
+html * {
+    font-family: 'Raleway', sans-serif !important;
+    color: #333;
+}
+
+body {
+    margin: 2%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.header {
+    font-size: 30px !important;
+    color: #FD3B72;
+    font-weight: bold;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.logo {
+    max-height: 45px;
+    width: auto;
+}
+
+/*PRODUCT NAME*/
+
+.prodname {
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    background-color: #F4F4F4;
+    border: none;
+    width: 95%;
+}
+
+/*SUBMIT*/
+
+input[type="submit"] {
+    border-radius: 0.2rem;
+    background-color: #FD3B72;
+    font-weight: bold;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 175px;
+    margin-top: 50px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #FF6C5A;
+    color: white;
+}
+
+/*PRICE*/
+
+input[type="currency"]{
+    margin-top: 50px;
+    margin-left: 20px;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    background-color: #F4F4F4;
+    border: none;
+    width: 10%;
+}
+
+/*STOCK*/
+
+input[type="number"]{
+    margin-top: 50px;
+    margin-left: 20px;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    background-color: #F4F4F4;
+    border: none;
+    width: 10%;
+}
+
+/*DESCRIPTION*/
+
+.desc{
+    margin-top: 50px;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.2rem;
+    background-color: #F4F4F4;
+    border: none;
+    resize: none;
+    width: 95%;
+    height: 150px;
+    padding: 1rem;
+}
+
+
+/*CATEGORY*/
+
+/* The container must be positioned relative: */
+.custom-select {
+    position: relative;
+    margin-top: 50px;
+    float: left;
+    margin-right: 20px;
+}
+  
+.custom-select select {
+    display: none; /*hide original SELECT element: */
+}
+  
+.select-selected {
+    background-color: #F4F4F4;
+    width: 90%;
+    font-weight: bold;
+    font-size: 1rem;
+    color: black;
+}
+  
+  /* Style the arrow inside the select element: */
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 15px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #333 transparent transparent transparent;
+}
+  
+  /* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+    border: 6px solid transparent;
+    border-color: #333 transparent transparent transparent;
+    transform: scaleY(-1);
+    top: 9px;
+}
+  
+  /* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+    color: #333;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+}
+  
+  /* Style items (options): */
+.select-items {
+    position: absolute;
+    background-color: #F4F4F4;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    width: 212px;
+    font-size: 1rem;
+}
+  
+  /* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+  
+.select-items div:hover, .same-as-selected {
+    background-color: #FD3B72;
+    color: white;
+}
+
+/*UPLOAD IMAGE*/
+
+.uploadImage {
+    margin-top: 50px;
+}
