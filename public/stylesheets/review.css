@@ -1,0 +1,129 @@
+@import url('http://fonts.cdnfonts.com/css/raleway-5');
+
+html * {
+    font-family: 'Raleway', sans-serif !important;
+    color: black;
+}
+
+body {
+    margin: 0 2% 2% 2%;
+}
+
+.header {
+    font-size: 30px !important;
+    color: #FD3B72;
+    font-weight: bold;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.logo {
+    max-height: 150px;
+    width: auto;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+    float: left;
+    padding-right: 20px;
+}
+
+.prodName {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 1px;
+}
+
+.sellerName {
+    font-size: 20px;
+    margin-top: 1px;
+}
+
+/*FORM*/
+.rating{
+    margin-top: 200px;
+}
+
+.label{
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+/*COMMENT*/
+.desc{
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.2rem;
+    background-color: #F4F4F4;
+    border: none;
+    resize: none;
+    width: 70%;
+    height: 150px;
+    padding: 1rem;
+    float: left;
+    margin-left: 190px;
+    margin-top: -60px;
+}
+
+/*RATING*/
+.rate {
+    height: 46px;
+    margin-left: 170px;
+    margin-top: -55px;
+    float: left;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #FD3B72;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #FD3B72;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #FF6C5A;
+}
+
+/*SUBMIT*/
+
+input[type="submit"] {
+    border-radius: 0.2rem;
+    background-color: #FD3B72;
+    font-weight: bold;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 175px;
+    margin-top: 100px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #FF6C5A;
+    color: white;
+}
