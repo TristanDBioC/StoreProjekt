@@ -11,11 +11,11 @@
 </head>
 <body>
     
-    <img src="resources/images/3.png" class="logo">
+    <a href=""><img src="resources/images/3.png" class="logo"></a>
 
     <br><br><br><br><br><br><p class="header">Leave a review:</p>
 
-    <img src="resources/images/1.png" alt="Product image">
+    <img src="resources/images/1.png" alt="Product image" class="prodImg">
 
     <p class="prodName">Yellow Shirt</p>
     <p class="sellerName">TindaNiLinda</p>

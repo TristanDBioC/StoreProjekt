@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Subscription page for Tinda's Newsletter.">
+    <meta name="description" content="Tinda's checkout page.">
     <link rel="stylesheet" href="stylesheets/checkout.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/images/8.png" />
     <title>Checkout | Tinda</title>
 </head>
 <body>
-    <img src="resources/images/3.png" class="logo">
+    <a href=""><img src="resources/images/3.png" class="logo"></a>
     <p class="header">Checkout</p>
     
     

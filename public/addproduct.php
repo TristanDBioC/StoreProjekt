@@ -10,7 +10,7 @@
     <title>Add Product | Tinda</title>
 </head>
 <body>
-    <img src="resources/images/5.png" class="logo">
+    <a href=""><img src="resources/images/5.png" class="logo"></a>
 
     <form id="addproduct" class="addproduct" action="" method="post">
         <p class="header">Add a new product</p>
