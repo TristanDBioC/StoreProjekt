@@ -10,33 +10,6 @@
     <link rel="stylesheet" href="stylesheets/signup.css">
 </head>
 <body>
-    <div class="wrap">
-    <div class="icon">
-        <img src="resources/images/6.png" alt="Tinda Logo">
-    </div>
-    <div class="signupform">
-            <h1 class="title">Sign Up</h1>
-        <div class="inputs">
-            <form method="POST" action="">
-                <input type="text" name="username" id="em" placeholder="  Username" pattern="^[\S]{1,16}$" title="Up to 16 characters, no spaces.">
-                <input type="text" name="contactnum" id="cn" placeholder="  Contact Number (Optional)" pattern="^[0-9]+$">
-                <input type="text" name="address" id="ad" placeholder="  Address">
-                <input type="password" name="pw" id="pw" placeholder="  Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,}$" title="Requires 1 capital letter, 1 number, and is at least 8 characters long.">    
-                <input type="submit" name="submit" value="SIGN UP">
-
-                <div class="err"><p>Username taken.</p></div>
-
-                <?php
-                    function displayError() {
-                        echo "<p class='err'>Username taken.</p>";
-                    }
-                ?>
-            </form>
-        </div>
-        
-    </div>
-    </div>
-
     <?php
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             verifyUser();
@@ -90,6 +63,30 @@
         }
 
     ?>
+    <div class="wrap">
+    <div class="icon">
+        <img src="resources/images/6.png" alt="Tinda Logo">
+    </div>
+    <div class="signupform">
+            <h1 class="title">Sign Up</h1>
+        <div class="inputs">
+            <form method="POST" action="">
+                <input type="text" name="username" id="em" placeholder="  Username" pattern="^[\S]{1,16}$" title="Up to 16 characters, no spaces.">
+                <input type="text" name="contactnum" id="cn" placeholder="  Contact Number (Optional)" pattern="^[0-9]+$">
+                <input type="text" name="address" id="ad" placeholder="  Address">
+                <input type="password" name="pw" id="pw" placeholder="  Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,}$" title="Requires 1 capital letter, 1 number, and is at least 8 characters long.">    
+                <input type="submit" name="submit" value="SIGN UP">
+                
 
+                <?php
+                    function displayError() {
+                        echo "<div class='err'><p>Username is taken!</p></div>";
+                    }
+                ?>
+            </form>
+        </div>
+        
+    </div>
+    </div>
 </body>
 </html>

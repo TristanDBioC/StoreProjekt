@@ -41,9 +41,10 @@ input[type="submit"] {
 }
 
 .err {
-    color: white;
-
+    position: absolute;
     width: fit-content;
-    margin: auto;
-    margin-top: 2em;
+    margin-top: 43em;
+    margin-left: 67.12em;
+
+    font-weight: bold;
 }
