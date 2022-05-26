@@ -17,16 +17,16 @@
     <div class="signupform">
             <h1 class="title">Sign Up</h1>
         <div class="inputs">
-            <form action="" method="POST">
-                Username: <input type="text" name="username" id="em"> <br>
-                Contact: <input type="text" name="contactnum" id="cn"> <br>
-                Address: <input type="text" name="address" id="ad"> <br>
-                Password: <input type="password" name="password" id="pw"> <br>
-                <input type='submit' name='submit'>
+            <form>
+                <input type="text" name="username" id="em" placeholder="  Username">
+                <input type="text" name="contactnum" id="cn" placeholder="  Contact Number">
+                <input type="text" name="address" id="ad" placeholder="  Address">
+                <input type="password" name="pw" id="pw" placeholder="  Password">
             </form>
         </div>
+        <button class="signup">SIGN UP</button>
     </div>
-
+    </div>
 
     <?php
         if($_SERVER["REQUEST_METHOD"] == "POST") {
