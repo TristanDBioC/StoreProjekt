@@ -7,7 +7,7 @@
 
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            echo "Updated";
+            echo "Changes saved.";
             // Move to next page
         } else {
             echo "Failed";
@@ -15,12 +15,15 @@
         }
     }
 
-    function becomeSeller($username, $isseller) {
+    function becomeSeller($username) {
         $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
-        $sql = "UPDATE member set isseller=".$isseller." WHERE username='".$username."'";
-        echo $sql;
+        $sql = "UPDATE member set isseller='1' WHERE username='".$username."'";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            echo $result;
+            return $result;
+        }
     }
-
    
 
 ?>

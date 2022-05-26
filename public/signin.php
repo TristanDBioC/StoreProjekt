@@ -35,7 +35,7 @@
                     displayError();
                 } else {
                     echo "User found";
-                    $_SESSION["user"] = array('id'=>$users[0]['id'], 'username'=>$users[0]["username"], 'address'=>$users[0]['address'], 'contact'=>$users[0]['contact'], 'displayname'=>$users[0]['isseller'], 'sellername'=>$users[0]['sellername']);
+                    $_SESSION["user"] = array('id'=>$users[0]['id'], 'username'=>$users[0]["username"], 'address'=>$users[0]['address'], 'contact'=>$users[0]['contact'], 'displayname'=>$users[0]['displayname'], 'isseller'=>$users[0]['isseller'], 'sellername'=>$users[0]['sellername']);
                     header('Location: index.php');
                 }
             }

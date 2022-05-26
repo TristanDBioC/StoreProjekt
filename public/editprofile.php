@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +16,49 @@
     <?php
         require 'php/scripts.php';
 
-        if($_SERVER["REQUEST_METHOD"] == "POST") {
-            
-            updateMember('tristan',$_POST['number'],$_POST['displayname'],$_POST['sellername']);
+        if (!isset($_SESSION['user'])) {
+            header('Location: index.php');
+        } else {
+            $user = $_SESSION['user'];
+            if(!$user) {
+                echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
+            } else {
+                echo '<div class="accs"><a href="editprofile.php"class="ep">' . $user['username'] . '</a></div>';
+            }
+        }
+
+        function displayisNotSeller() {
+            echo "
+            <div class='main_content'>
+            <form id='editprofile' class='editprofile' action='' method='post'>
+                <p class='subheading'>Edit profile</p>
+                <p class='caption'>General information</p>
+                <input required='required' placeholder='Displayed Name' type='text' class='number' name='displayname' value=''><br><br>
+                <input required='required' placeholder='Address' type='text' class='address' name='address' value=''><br>
+                <input required='required' placeholder='Contact Number' type='number' class='number' name='number' value=''><br>
+                <input type='submit' name='submit' value='Save'>
+            </form>
+            <form method='post'>
+                <input type='submit' name='becomeSeller', value='Register as Seller'>
+             </form>
+            </div>";
+
+        }
+
+        function displayIsSeller() {
+            echo "
+            <div class='main_content'>
+            <form id='editprofile' class='editprofile' action='' method='post'>
+                <p class='subheading'>Edit profile</p>
+                <p class='caption'>General information</p>
+                <input required='required' placeholder='Displayed Name' type='text' class='number' name='displayname' value=''><br><br>
+                <input required='required' placeholder='Address' type='text' class='address' name='address' value=''><br>
+                <input required='required' placeholder='Contact Number' type='number' class='number' name='number' value=''><br>
+                <p class='subheading'>Seller information</p>
+                <input required='required' placeholder='Seller Name' type='text' class='sellerName' name='sellername' value=''><br> 
+                <input type='submit' name='submit' value='Save'>
+            </form>
+            </div>";
         }
     ?>
 
@@ -51,26 +94,31 @@
                 <p class="notifp">Notifications</p>
             </div>
         </div>
-        <div class="accs">
-            <a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a>
-        </div>
     </div>
 
     <div class="main_content">
-        <form id="editprofile" class="editprofile" action="" method="post">
-            <p class="subheading">Edit profile</p>
-            <p class="caption">General information</p>
-            <input required="required" placeholder="Displayed Name" type="text" class="number" name="displayname" value=""><br><br>
-            <input required="required" placeholder="Address" type="text" class="address" name="address" value=""><br>
-            <input required="required" placeholder="Contact Number" type="number" class="number" name="number" value=""><br>
-
-            <input type="button" value="Become a Seller">
-
-            <p class="subheading">Seller information</p>
-            <input required="required" placeholder="Seller Name" type="text" class="sellerName" name="sellername" value=""><br>
-
-            <input type="submit" value="SUBMIT">
-        </form>
     </div>
+    <?php
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['submit'])) {
+                updateMember($user['username'],$_POST['number'],$_POST['displayname'],$_POST['sellername']);
+            }
+            if (isset($_POST['becomeSeller'])) {
+                if (becomeSeller($user['username'])) {
+                    $_SESSION['user']['isseller'] = 1;
+                    header('Location: editprofile.php');
+                } else {
+                    echo "failed somehow";
+                }
+
+            }
+        }
+
+        if($user['isseller'] == 1) {
+            displayIsSeller();
+        } else {
+            displayisNotSeller();
+        }
+   ?>
 </body>
 </html>
