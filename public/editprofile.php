@@ -10,6 +10,15 @@
     <title>Edit Profile | Tinda</title>
 </head>
 <body>
+    <?php
+        require 'php/scripts.php';
+
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            
+            updateMember('tristan',$_POST['number'],$_POST['displayname'],$_POST['sellername']);
+        }
+    ?>
+
     <div class="header">
         <div class="icon">
             <img src="resources/images/3.png" alt="Tinda" style="">
@@ -51,14 +60,14 @@
         <form id="editprofile" class="editprofile" action="" method="post">
             <p class="subheading">Edit profile</p>
             <p class="caption">General information</p>
-
+            <input required="required" placeholder="Displayed Name" type="text" class="number" name="displayname" value=""><br><br>
             <input required="required" placeholder="Address" type="text" class="address" name="address" value=""><br>
             <input required="required" placeholder="Contact Number" type="number" class="number" name="number" value=""><br>
 
             <input type="button" value="Become a Seller">
 
             <p class="subheading">Seller information</p>
-            <input required="required" placeholder="Seller Name" type="text" class="sellerName" name="sellerName" value=""><br>
+            <input required="required" placeholder="Seller Name" type="text" class="sellerName" name="sellername" value=""><br>
 
             <input type="submit" value="SUBMIT">
         </form>
