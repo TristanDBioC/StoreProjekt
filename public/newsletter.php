@@ -10,7 +10,7 @@
     <title>Newsletter | Tinda</title>
 </head>
 <body>
-    <img src="resources/images/7.png" class="logo">
+    <a href=""><img src="resources/images/7.png" class="logo"></a>
     
     <form id="newsletter" class="newsletter" action="" method="post">
         <p class="header">Subscribe to our newsletter</p>

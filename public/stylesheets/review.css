@@ -6,7 +6,7 @@ html * {
 }
 
 body {
-    margin: 0 2% 2% 2%;
+    margin: 2%;
 }
 
 .header {
@@ -18,11 +18,11 @@ body {
 }
 
 .logo {
-    max-height: 150px;
+    max-height: 50px;
     width: auto;
 }
 
-img {
+.prodImg {
     width: 250px;
     height: 250px;
     float: left;
