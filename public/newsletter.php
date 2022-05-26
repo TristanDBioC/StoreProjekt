@@ -15,7 +15,8 @@
     <form id="newsletter" class="newsletter" action="" method="post">
         <p class="header">Subscribe to our newsletter</p>
 
-        <input required type="email" name="email" value="" class="form-input" placeholder="Enter your email address" pattern="[a-z0-9._%+-]+@[a-z0-9._%+-]+\.[a-z]{2,}$" title="Must have username, @ sign, mail server, and domain">
+        <input required type="email" name="email" value="" class="form-input" placeholder="Enter your email address" 
+                pattern="[a-z0-9._%+-]+@[a-z0-9._%+-]+\.[a-z]{2,}$" title="Must have username, @ sign, mail server, and domain">
         
         <p>How often would you like to receive emails?</p>
 
@@ -34,8 +35,18 @@
             Monthly
         </label>
 
-        <input type="submit" value="SUBSCRIBE">
+        <input type="submit" name="" value="SUBSCRIBE">
     </form>
+
+    <?php
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            sendEmail($_POST['email'], $_POST['subscription']);
+        }
+        function sendEmail($email, $freq) {
+            mail($email, "Tinda News Letter: ".$freq,"Kumain ka na ba?");
+        }
+
+    ?>
 
 </body>
 </html>

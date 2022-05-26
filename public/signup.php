@@ -72,7 +72,7 @@
 
             $result = mysqli_query($conn, $sql);
             if ($result) {
-                echo "Successfully added to DB";
+                print_r("hello word");
                 // Move to next page
             } else {
                 echo "Failed";

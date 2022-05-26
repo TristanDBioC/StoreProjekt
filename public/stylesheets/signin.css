@@ -28,7 +28,7 @@
     color: lightslategrey;
 }
 
-.signin {
+input[type="submit"] {
     border: 0;
     border-radius: 5px;
     background-color: #FF6C5A;
