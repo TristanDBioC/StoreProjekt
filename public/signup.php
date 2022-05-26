@@ -85,7 +85,8 @@
                 ?>
             </form>
         </div>
-        
+        <p class="old">Already have an account? <a href="signin.php" class="signin">Sign In</a></p>
+    </div>
     </div>
     </div>
 </body>

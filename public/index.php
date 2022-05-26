@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -10,6 +13,14 @@
     <link rel="stylesheet" href="stylesheets/dropdown.css">
 </head>
 <body>
+    <?php
+        $user = $_SESSION['user'];
+
+        foreach($user as $key => $value) {
+            echo $key . " = " . $value . "<br>";
+        }
+    ?>
+
     <div class="header">
         <div class="icon">
             <img src="resources/images/3.png" alt="Tinda" style="">

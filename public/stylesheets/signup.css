@@ -42,6 +42,19 @@ input[type="submit"] {
     color: white;
 }
 
+.old {
+    font-weight: bold;
+
+    margin: auto;
+    margin-top: 3.5em;
+    width: fit-content;
+}
+
+.signin {
+    color: white;
+    text-decoration: none;
+}
+
 .err {
     position: absolute;
     width: fit-content;
