@@ -35,7 +35,7 @@
                     echo "<meta http-equiv='refresh' content='0'>";
                 } else {
                     echo "User found";
-                    header('Location: index.php');
+                    // header('Location: index.php');
                 }
             }
 
@@ -51,7 +51,7 @@
             <form method="POST">
                 <input type="text" name="username" id="em" placeholder="  Username">
                 <input type="password" name="password" id="pw" placeholder="  Password">
-                <input type="submit" name="submit" value="SIGN UP">
+                <input type="submit" name="submit" value="SIGN IN">
             </form>
         </div>
 

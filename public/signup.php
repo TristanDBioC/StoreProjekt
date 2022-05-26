@@ -17,12 +17,20 @@
     <div class="signupform">
             <h1 class="title">Sign Up</h1>
         <div class="inputs">
-            <form method="POST">
+            <form method="POST" action="">
                 <input type="text" name="username" id="em" placeholder="  Username" pattern="^[\S]{1,16}$" title="Up to 16 characters, no spaces.">
-                <input type="number" name="contactnum" id="cn" placeholder="  Contact Number (Optional)">
+                <input type="text" name="contactnum" id="cn" placeholder="  Contact Number (Optional)" pattern="^[0-9]+$">
                 <input type="text" name="address" id="ad" placeholder="  Address">
-                <input type="password" name="pw" id="pw" placeholder="  Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,}$" title="Requires 1 capital letter, 1 number, and is at least 8 characters long.">
+                <input type="password" name="pw" id="pw" placeholder="  Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,}$" title="Requires 1 capital letter, 1 number, and is at least 8 characters long.">    
                 <input type="submit" name="submit" value="SIGN UP">
+
+                <div class="err"><p>Username taken.</p></div>
+
+                <?php
+                    function displayError() {
+                        echo "<p class='err'>Username taken.</p>";
+                    }
+                ?>
             </form>
         </div>
         
@@ -44,7 +52,7 @@
                 addtoDB();
 
             } else {
-                echo 'alert("Username already exists ")';
+                displayError();
             }
         }
 
