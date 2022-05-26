@@ -15,10 +15,6 @@
 <body>
     <?php
         $user = $_SESSION['user'];
-
-        foreach($user as $key => $value) {
-            echo $key . " = " . $value . "<br>";
-        }
     ?>
 
     <div class="header">
@@ -53,9 +49,13 @@
                 <p class="notifp">Notifications</p>
             </div>
         </div>
-        <div class="accs">
-            <a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a>
-        </div>
+        <?php
+            if(!$user) {
+                echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
+            } else {
+                echo '<div class="accs"><a href="editprofile.php"class="ep">' . $user['username'] . '</a></div>';
+            }
+        ?>
     </div>
 
     <div class="body">
