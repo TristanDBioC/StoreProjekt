@@ -19,7 +19,9 @@
     border: 0;
     border-radius: 5px;
 
-    width: 500px;
+    padding: 1px 10px;
+
+    width: 480px;
     height: 45px;
     margin-top: 1em;
 
@@ -52,4 +54,13 @@ input[type="submit"] {
 .signup {
     color: white;
     text-decoration: none;
+}
+
+.err {
+    position: absolute;
+    width: fit-content;
+    margin-top: 33.375em;
+    margin-left: 64.75em;
+
+    font-weight: bold;
 }
