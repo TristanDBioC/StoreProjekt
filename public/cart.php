@@ -29,8 +29,10 @@
                 </div>
             </div>
 
-            <button class="btn2" id="deleteEvent"><img src = "resources/images/trash.png" class = "icon"> &nbsp;Delete Event</button>
-
+            <div>
+                <button class="btn2" id="deleteEvent"><img src = "resources/images/trash.png" class = "icon">Delete Event</button>
+            </div>
+            
             <!-- Display Table -->
             <div class="container" id="eventtable">
                 <table class="events" id="events">
