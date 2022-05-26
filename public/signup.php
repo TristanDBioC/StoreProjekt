@@ -17,14 +17,15 @@
     <div class="signupform">
             <h1 class="title">Sign Up</h1>
         <div class="inputs">
-            <form>
+            <form method="POST">
                 <input type="text" name="username" id="em" placeholder="  Username">
                 <input type="text" name="contactnum" id="cn" placeholder="  Contact Number">
                 <input type="text" name="address" id="ad" placeholder="  Address">
                 <input type="password" name="pw" id="pw" placeholder="  Password">
+                <input type="submit" name="submit" value="SIGN UP">
             </form>
         </div>
-        <button class="signup">SIGN UP</button>
+        
     </div>
     </div>
 
