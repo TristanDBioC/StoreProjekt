@@ -4,13 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Page where seller can add a product.">
+ 
     <link rel="stylesheet" href="stylesheets/addproduct.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/images/8.png" />
     <title>Add Product | Tinda</title>
 </head>
 <body>
-    <a href=""><img src="resources/images/5.png" class="logo"></a>
+    <?php
+        if(isset($_SESSION['user'])) {
+            $user = $_SESSION['user'];
+        }
+
+        function logoutUser() {
+            unset($_SESSION['user']);
+            unset($user);
+            header('Location: index.php');
+        }
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            logoutUser();
+        }
+    ?>
+
+    <div class="header">
+        <div class="icon">
+            <a href="index.php"></a><img src="resources/images/5.png" alt="Tinda" style=""></a>
+        </div>
+        <div class="notifc">
+            <div class="notifs">
+                <img src="resources/images/notifs.png" alt="Notifications" class="notifi">
+                <p class="notifp">Notifications</p>
+            </div>
+        </div>
+        <?php
+            if(!isset($user)) {
+                echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
+            } else {
+                echo    '<div class="accs">
+                            <div class="acdrop">
+                                <a href="editprofile.php"class="ep">' . $user['username'] . '</a>
+                                <div class="dropcont">
+                                    <a href="#" class="vp">View Purchases</a>
+                                    <form method="POST">
+                                        <input type="submit" value="Logout" name="Logout" class="logout">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>';
+            }
+        ?>
+    </div>
 
     <form id="addproduct" class="addproduct" action="" method="post">
         <p class="header">Add a new product</p>

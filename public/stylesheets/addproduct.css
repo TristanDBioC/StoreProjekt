@@ -5,23 +5,65 @@ html * {
     color: #333;
 }
 
-body {
-    margin: 2%;
-    font-size: 1rem;
-    font-weight: bold;
+:root {
+  --fontsize: 1.375em;
+  --topspace: 5.5em;
+  --rohtop: 4.5em;
 }
 
 .header {
-    font-size: 30px !important;
-    color: #FD3B72;
-    font-weight: bold;
-    margin-top: 40px;
-    text-align: left;
+  height: 10em;
+  width: 100%;
+
+  position: relative;
 }
 
-.logo {
-    max-height: 45px;
-    width: auto;
+.icon {
+  height: 10em;
+  width: 12em;
+  margin-left: 2.5em;
+  
+  display: inline-block;
+  position: absolute;
+}
+
+.icon img {
+  width: 10em;
+  margin-top: 3em;
+}
+
+.notifc {
+  display:inline-block;
+  position: absolute;
+  margin-left: 98em;
+  margin-top: 2em;
+}
+
+.notifs {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+
+  height: 2em;
+}
+
+.notifi {
+  height: 40px;
+  width: 40px;
+}
+
+.accs {
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  
+  margin-left: 109.5em;
+  margin-top: 2.4em;
+}
+
+.accs a {
+  color:black;
+  text-decoration: none;
 }
 
 /*PRODUCT NAME*/
