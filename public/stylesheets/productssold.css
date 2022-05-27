@@ -1,0 +1,278 @@
+@import url('http://fonts.cdnfonts.com/css/raleway-5');
+
+html * {
+    font-family: 'Raleway', sans-serif !important;
+}
+
+:root {
+  --fontsize: 1.375em;
+  --topspace: 5.5em;
+  --rohtop: 4.5em;
+}
+
+.header {
+  height: 10em;
+  width: 100%;
+
+  position: relative;
+}
+
+.icon {
+  height: 10em;
+  width: 12em;
+  margin-left: 2.5em;
+  
+  display: inline-block;
+  position: absolute;
+}
+
+.icon img {
+  width: 10em;
+  margin-top: 3em;
+}
+
+.notifc {
+  display:inline-block;
+  position: absolute;
+  margin-left: 98em;
+  margin-top: 2em;
+}
+
+.notifs {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+
+  height: 2em;
+}
+
+.notifi {
+  height: 40px;
+  width: 40px;
+}
+
+.accs {
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  
+  margin-left: 109.5em;
+  margin-top: 2.4em;
+}
+
+.accs a {
+  color:black;
+  text-decoration: none;
+}
+
+/*BODY*/
+
+.main_content {
+    margin: 0 0 0 2%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.subheading {
+    font-size: 35px !important;
+    color: #FD3B72;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.delete {
+    height: 25px;
+    margin-right: 5px;
+  }
+
+.btn {
+	background-color: #FD3B72;
+	border: none; /* Remove borders */
+	color: white; /* Black text */
+	padding: 12px 16px; /* Some padding */
+	font-size: 16px; /* Set a font size */
+    display: flex;
+    align-items: center;
+	cursor: pointer; /* Mouse pointer on hover */
+	border-radius: 8px;
+    position: absolute;
+    top: 135px;
+    right: 16%;
+}
+
+.btn2 {
+    background-color: white;
+    border: none; /* Remove borders */
+    color: #FD3B72; /* Black text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 8px;
+    position: absolute;
+    top: 135px;
+    right: 5%;
+    font-weight: bold;
+}
+
+/* Darker background on mouse-over */
+.btn:hover{
+  background-color: #fa7975;
+} 
+
+/* Scrollbar Width */
+.container::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Scrollbar Track */
+  .container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Scrollbar Handle */
+  .container::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Scrollbar Handle on hover */
+  .container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Modal Code */
+  
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    text-align: center;
+    margin: 15% auto; /* 25% from the top and centered */
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    width: 400px; /* Could be more or less, depending on screen size */
+  }
+  
+  .modal-content p {
+    font-size: 20px;
+  }
+  
+  /* The Close Button */
+  .modalbuttons {
+    text-align: center;
+  }
+  
+  .cancelDelete, .confirmDelete {
+    background-color: white;
+    border: none; /* Remove borders */
+    color: black; /* Black text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 14px; /* Set a font size */
+    align-items: center;
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 8px;
+  }
+  
+  .cancelDelete {
+    border: 1px solid rgb(121, 21, 21);
+    margin-left: 240px;
+  }
+  
+  .confirmDelete:hover {
+    background-color: #d4f2f2;
+  } 
+  
+  .cancelDelete:hover {
+    background-color: #fa7975;
+  }
+  
+  /* Table Code */
+  
+  .container {
+    margin-top: 10px;
+    overflow: scroll;
+    width: 100%;
+    height: 77%;
+  }
+  
+  .products, .productsdata {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  .products th {
+    font-size: 25px;
+  }
+  
+  colgroup .tick {
+    width: 3%;
+  }
+  
+  colgroup .Product {
+    width: 67%;
+  }
+  
+  colgroup .Price, .QTY, .Sales{
+    width: 10%;
+  }
+  
+  tr {
+    line-height: 25px;
+    text-align: left;
+  }
+  
+  td {
+    line-height: 25px;
+    font-size: 18px;
+  }
+  
+  .loading_message {
+    height: 100%;
+    text-align: center;
+    font-size: 50px !important;
+  }
+  
+  .selectall {
+    margin-left: 3px;
+    display: inline-block;
+  }
+  
+  .clearselection {
+    display: inline-block;
+    margin-left: 20px;
+    color:#FD3B72;
+    font-weight: bold;
+  }
+  
+  .clearselection:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  tbody td:hover {
+    cursor: pointer;
+  }
+
+  .prod{
+      max-width: 200px;
+      height: auto;
+  }
+
+  .prodName {
+      margin-top: -120px;
+      margin-left: 250px;
+  }
