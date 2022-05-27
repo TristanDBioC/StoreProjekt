@@ -1,6 +1,5 @@
 <?php
 
-
 function saveImage($imagename, $count) {
     $patharray = [];
         for ($i = 0; $i<$count; $i++) {
@@ -45,4 +44,18 @@ function nameGenerator($orignalfilename, $number) {
     $concat = $orignalfilename.$number.rand(0, 2048);
     $filename = hash('sha256', $concat, false);
     return $filename.$extension;
+}
+
+function retrieveImages($id) {
+    $imagepatharray = [];
+    $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+    $sql = "SELECT * FROM image WHERE prodid='". $id. "'";
+    $result = mysqli_query($conn, $sql);
+    $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    foreach ($images as $row) {
+        $imagepatharray[]=$row['path'];
+    }
+    
+    return $imagepatharray;
 }
