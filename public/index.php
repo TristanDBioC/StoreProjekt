@@ -14,7 +14,9 @@
 </head>
 <body>
     <?php
-        $user = $_SESSION['user'];
+        if (isset($_SESSION['user'])) {
+            $user = $_SESSION['user'];
+        }
     ?>
 
     <div class="header">
@@ -50,7 +52,7 @@
             </div>
         </div>
         <?php
-            if(!$user) {
+            if(!isset($user)) {
                 echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
             } else {
                 echo '<div class="accs"><a href="editprofile.php"class="ep">' . $user['username'] . '</a></div>';

@@ -117,6 +117,6 @@
         </div>
         
     </div>
-    <script src="product.js"></script>
+    <script src="bundles/product.js"></script>
 </body>
 </html>
