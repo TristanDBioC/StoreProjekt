@@ -7,19 +7,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="resources/images/8.png" />
     <title>Welcome to Tinda</title>
+
     <link rel="stylesheet" href="stylesheets/font.css">
     <link rel="stylesheet" href="stylesheets/index.css">
     <link rel="stylesheet" href="stylesheets/dropdown.css">
 </head>
 <body>
     <?php
-        $user = $_SESSION['user'];
+        if(isset($_SESSION['user'])) {
+            $user = $_SESSION['user'];
+        }
+
+        function logoutUser() {
+            unset($_SESSION['user']);
+            unset($user);
+            header('Location: index.php');
+        }
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            logoutUser();
+        }
     ?>
 
     <div class="header">
         <div class="icon">
-            <img src="resources/images/3.png" alt="Tinda" style="">
+            <a href="index.php"></a><img src="resources/images/3.png" alt="Tinda" style=""></a>
         </div>
         <div class="hcatscont">
             <div class="hcats">
@@ -50,14 +64,24 @@
             </div>
         </div>
         <?php
-            if(!$user) {
+            if(!isset($user)) {
                 echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
             } else {
-                echo '<div class="accs"><a href="editprofile.php"class="ep">' . $user['username'] . '</a></div>';
+                echo    '<div class="accs">
+                            <div class="acdrop">
+                                <a href="editprofile.php"class="ep">' . $user['username'] . '</a>
+                                <div class="dropcont">
+                                    <a href="#" class="vp">View Purchases</a>
+                                    <form method="POST">
+                                        <input type="submit" value="Logout" name="Logout" class="logout">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>';
             }
         ?>
     </div>
-
+    
     <div class="body">
         <div class="title">
             <h1>Categories</h1>

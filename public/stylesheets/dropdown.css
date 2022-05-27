@@ -3,7 +3,7 @@
     font-weight: 700;
 }
 
-.hcats {
+.hcats, .acdrop {
     position: relative;
     display: inline-block;
 }
@@ -11,9 +11,11 @@
 .dropcont {
     display: none;
     position: absolute;
+    background-color: white;
     min-width: 10em;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    font-weight: normal;
 }
 
 .dropcont a {
@@ -23,6 +25,33 @@
     display: block;
 }
 
+.dropcont input {
+    color: black;
+    background-color: white;
+
+    padding: 12px 16px;
+    border: 0;
+
+    text-decoration: none;
+    display: block;
+}
+
+.logout {
+    width: 100%;
+    font-size: 1em;
+    text-align: left;
+}
+
+.logout:hover {
+    background-color: #ddd;
+    cursor: pointer;
+
+}
+
 .dropcont a:hover {background-color: #ddd;}
 
 .hcats:hover .dropcont {display: block;}
+
+.ep:hover .dropcont {background-color: #ddd;}
+
+.acdrop:hover .dropcont {display: block;}
