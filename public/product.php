@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="stylesheets/product.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/images/8.png" />
-    <title>Product Details | Tinda</title>
-    <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>Product | Tinda</title>
+    
 </head>
 <body>
 <div class="header">
@@ -50,7 +50,22 @@
 
     <div class="main_content">
         <div class="prodInfo">
-            <img src="resources/images/1.png" alt="product image" class="prodImg">
+            
+            <div class="slider">
+                <a href="#slide-1">1</a>
+                <a href="#slide-2">2</a>
+                <a href="#slide-3">3</a>
+                <a href="#slide-4">4</a>
+                <a href="#slide-5">5</a>
+                <div class="slides">
+                    <div id="slide-1"><img src="resources/images/1.png"></div>
+                    <div id="slide-2"><img src="resources/images/2.png"></div>
+                    <div id="slide-3"><img src="resources/images/1.png"></div>
+                    <div id="slide-4"><img src="resources/images/2.png"></div>
+                    <div id="slide-5"><img src="resources/images/1.png"></div>
+                </div>
+            </div>
+
             <div class="description">
                 <b>Description</b>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta eget augue a accumsan. Quisque mollis rhoncus risus sit amet congue. Vivamus euismod eu lacus ut pulvinar. Sed in sem id quam egestas tincidunt quis sed mi. Vestibulum aliquet purus turpis. Nam consectetur, leo nec eleifend vulputate, lacus erat ultrices felis, sed mollis dolor turpis non libero. Fusce fringilla dui non nisi commodo, feugiat imperdiet libero faucibus. Pellentesque commodo vel massa commodo convallis. Ut venenatis lacus a vulputate ornare. Quisque tempor, ligula non eleifend convallis, justo felis cursus mauris, a efficitur risus justo et nisi. Nulla odio ligula, ultrices sed ipsum sed, suscipit ornare mi. Nam elit libero, luctus sit amet leo in, euismod fringilla neque. Proin ac posuere ligula.</p>
@@ -58,7 +73,7 @@
         </div>
 
         <div class="prodDets">
-            <p class="subheading">Cotton T-shirt Dress (i dont even know if this is actually a thing lol)</p>
+            <p class="subheading">Cotton T-shirt</p>
             <a href="#" class="seller"><p class="caption">Tinda ni Linda</p></a>
 
             <p class="rating">5</p>
@@ -82,7 +97,6 @@
                     <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
                 </span>
                 <p class="qty">50 left</p>
-                <script src="script.js"></script>
             <input type="submit" value="Add to cart" class="btn">
             <input type="submit" value="Buy Now" class="btn1">
             </form> 
@@ -103,6 +117,6 @@
         </div>
         
     </div>
-   
+    <script src="product.js"></script>
 </body>
 </html>
