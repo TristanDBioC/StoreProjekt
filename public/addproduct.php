@@ -57,7 +57,7 @@
     </div>
 
     <form id="addproduct" class="addproduct" action="" method="post">
-        <p class="header">Add a new product</p>
+        <p class="subheader">Add a new product</p>
 
         <input required="required" placeholder="Input product name" type="text" class="prodname" name="prodname" value=""><br>
        

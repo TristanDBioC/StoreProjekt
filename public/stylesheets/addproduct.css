@@ -66,6 +66,14 @@ html * {
   text-decoration: none;
 }
 
+.subheader {
+  font-size: 30px !important;
+  color: #FD3B72;
+  font-weight: bold;
+  margin-top: 40px;
+  text-align: left;
+} 
+
 /*PRODUCT NAME*/
 
 .prodname {
