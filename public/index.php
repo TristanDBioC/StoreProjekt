@@ -46,7 +46,8 @@
             </div>
         </div>
         <div class="SoT">
-            <a href="#">Sell on Tinda</a>
+            <!-- MAKE THIS CONDITIONAL IF USER IS SELLER -->
+            <a href="addproduct.php">Sell on Tinda</a>  
         </div>
         <div class="searchbar">
             <form>
@@ -64,20 +65,20 @@
             </div>
         </div>
         <?php
-            if(!isset($user)) {
+            if(!isset($_SESSION['user'])) {
                 echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
             } else {
-                echo    '<div class="accs">
-                            <div class="acdrop">
-                                <a href="editprofile.php"class="ep">' . $user['username'] . '</a>
-                                <div class="dropcont">
-                                    <a href="#" class="vp">View Purchases</a>
-                                    <form method="POST">
-                                        <input type="submit" value="Logout" name="Logout" class="logout">
+                echo    "<div class='accs'>
+                            <div class='acdrop'>
+                                <a href='editprofile.php'class='ep'>" . $user['username'] . "</a>
+                                <div class='dropcont'>
+                                    <a href='#' class='vp'>View Purchases</a>
+                                    <form method='POST'>
+                                        <input type='submit' value='Logout' name='Logout' class='logout'>
                                     </form>
                                 </div>
                             </div>
-                        </div>';
+                        </div>";
             }
         ?>
     </div>
