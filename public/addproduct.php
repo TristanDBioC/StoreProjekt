@@ -23,7 +23,9 @@
         }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            logoutUser();
+            if (isset($_POST['Logout'])){
+                logoutUser();
+            }
         }
     ?>
 
@@ -37,23 +39,6 @@
                 <p class="notifp">Notifications</p>
             </div>
         </div>
-        <?php
-            if(!isset($user)) {
-                echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
-            } else {
-                echo    '<div class="accs">
-                            <div class="acdrop">
-                                <a href="editprofile.php"class="ep">' . $user['username'] . '</a>
-                                <div class="dropcont">
-                                    <a href="#" class="vp">View Purchases</a>
-                                    <form method="POST">
-                                        <input type="submit" value="Logout" name="Logout" class="logout">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>';
-            }
-        ?>
     </div>
 
     <form id="addproduct" class="addproduct" action="" method="post">
@@ -119,6 +104,24 @@
 
         <input type="submit" value="SUBMIT">
     </form>
+
+    <?php
+        if(!isset($_SESSION['user'])) {
+            echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
+        } else {
+            echo    '<div class="accs">
+                        <div class="acdrop">
+                            <a href="editprofile.php"class="ep">' . $user['username'] . '</a>
+                            <div class="dropcont">
+                                <a href="#" class="vp">View Purchases</a>
+                                <form method="POST">
+                                    <input type="submit" value="Logout" name="Logout" class="logout">
+                                </form>
+                            </div>
+                        </div>
+                    </div>';
+        }
+    ?>
 
     <script src="bundles/addproduct.js"></script>
 </body>
