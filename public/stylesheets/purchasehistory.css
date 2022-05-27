@@ -1,0 +1,270 @@
+/*HEADER CODE*/
+@import url('http://fonts.cdnfonts.com/css/raleway-5');
+
+html * {
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.drop {
+    font-size: var(--fontsize);
+    font-weight: 700;
+}
+
+.hcats {
+    position: relative;
+    display: inline-block;
+    margin-top: -20px;
+}
+
+.dropcont {
+    display: none;
+    position: absolute;
+    min-width: 10em;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropcont a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropcont a:hover {background-color: #ddd;}
+
+.hcats:hover .dropcont {display: block;}
+
+:root {
+    --fontsize: 1.375em;
+    --topspace: 5.5em;
+    --rohtop: 4.5em;
+}
+
+.header {
+    height: 10em;
+    width: 100%;
+
+    position: relative;
+}
+
+.icon {
+    height: 10em;
+    width: 12em;
+    margin-left: 2.5em;
+    
+    display: inline-block;
+    position: absolute;
+}
+
+.icon img {
+    width: 10em;
+    margin-top: 3em;
+}
+
+.hcatscont {
+    height: 8em;
+    width: 15em;
+
+    display: inline-block;
+    margin-top: 5em;
+    margin-left: 15em;
+
+    overflow: visible;
+}
+
+.SoT {
+    height: 8em;
+    width: 15em;
+
+    display: inline-block;
+    position: absolute;
+
+    margin-top: 5em;
+}
+
+.SoT a {
+    color: black;
+    text-decoration: none;
+    font-size: var(--fontsize);
+    font-weight: 700;
+}
+
+.searchbar {
+    width: fit-content;
+    display: inline-block;
+    
+    position: absolute;
+
+    margin-top: 4.5em;
+    margin-left: 45em;
+}
+
+.searchbar input[type=text] {
+    background-color: #F4f4f4;
+    border-radius: 5px;
+    border: 0;
+
+    height: 40px;
+    width: 550px;
+    z-index: 1;
+}
+
+.search {
+    border: none;
+    position: absolute;
+
+    background-color: #f4f4f4;
+    height: 30px;
+    margin-left: -60px;
+    margin-top: 2px;
+    z-index: 2;
+}
+
+.search img {
+    height: 37.5px;
+    width: 37.5px;
+    z-index: 2;
+}
+
+.searchbar input[type=text]::placeholder {
+    color: gray;
+}
+
+.cart {
+    display: inline-block;
+    position: absolute;
+
+    margin-top: 3.9em;
+    margin-left: 80em;
+}
+
+.carti {
+    height: 60px;
+    width: 60px;
+}
+
+.notifc {
+    display:inline-block;
+    position: absolute;
+
+    margin-left: 68em;
+    margin-top: 2em;
+}
+
+.notifs {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+
+    height: 2em;
+}
+
+.notifi {
+    height: 40px;
+    width: 40px;
+}
+
+.accs {
+    font-weight: bold;
+    display: inline-block;
+    position: absolute;
+
+    margin-left: 79.5em;
+    margin-top: 2.4em;
+}
+
+.accs a {
+    color:black;
+    text-decoration: none;
+}
+
+/*BODY*/
+
+.main_content {
+    margin: 0 0 0 2%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.subheading {
+    font-size: 30px !important;
+    color: #FD3B72;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+/* Table Code */
+
+.container {
+    margin-top: 10px;
+    overflow: scroll;
+    width: 100%;
+    height: 77%;
+  }
+  
+  .events, .eventsdata {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  .events th {
+    font-size: 25px;
+  }
+  
+   
+  colgroup .Product {
+    width: 60%;
+  }
+  
+  colgroup .Unit_Price, .QTY, .Subtotal, .Review {
+    width: 10%;
+  }
+  
+  tr {
+    line-height: 25px;
+    text-align: left;
+  }
+  
+  td {
+    line-height: 25px;
+    font-size: 18px;
+  }
+  
+  .loading_message {
+    height: 100%;
+    text-align: center;
+    font-size: 50px !important;
+  }
+  
+  .selectall {
+    margin-left: 3px;
+    display: inline-block;
+  }
+  
+  .clearselection {
+    display: inline-block;
+    margin-left: 20px;
+    color:#00BBD1;
+    font-weight: bold;
+  }
+  
+  .clearselection:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  tbody td:hover {
+    cursor: pointer;
+  }
+
+  .prod{
+      max-width: 200px;
+      height: auto;
+  }
+
+  .prodName {
+      margin-top: -120px;
+      margin-left: 250px;
+  }

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Tinda's shopping cart page.">
-    <link rel="stylesheet" href="stylesheets/checkout.css">
+    <link rel="stylesheet" href="stylesheets/cart.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/images/8.png" />
     <title>Shopping Cart | Tinda</title>
@@ -16,7 +16,8 @@
     <!-- Main Content -->
 
     <br><br><br><br><br><br>
-                                           
+        
+    <form id='cart' class='cart' action='' method='post'>
                 <!-- Checkbox -->
                 <div class="selectall">
                     <input type="checkbox" id="selectall" name="selectall">
@@ -29,9 +30,8 @@
                 </div>
             </div>
 
-            <div>
-                <button class="btn2" id="deleteEvent"><img src = "resources/images/trash.png" class = "icon">Delete Event</button>
-            </div>
+            <input type="button" id="deleteProduct" value="Delete Product" class="btn2">
+            
             
             <!-- Display Table -->
             <div class="container" id="eventtable">
@@ -59,6 +59,10 @@
                     </tbody>
                 </table>
             </div>
+        <span class="subHeader">Subtotal </span>
+        <span class="total">&#8369; 400</span>
+        <input type="submit" value="Check out">
+    </form>
 
 </body>
 </html>
