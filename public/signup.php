@@ -32,7 +32,6 @@
         }
 
         function addtoDB() {
-            echo "adding to db";
             $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
             // set varuabkes
             $id = 0;
