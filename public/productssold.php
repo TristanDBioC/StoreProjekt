@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="List of seller's products.">
     <link rel="stylesheet" href="stylesheets/productssold.css">
+    <link rel="stylesheet" href="stylesheets/dropdown.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/images/8.png" />
     <title>My Products | Tinda</title>
@@ -24,7 +25,18 @@
         }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            logoutUser();
+            if (isset($_POST['Logout'])){
+                logoutUser();
+            }
+        }
+
+        function getallproducts() {
+            $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+            $sql = "SELECT * FROM product WHERE sellerid='".$_SESSION['user']['id']."'";
+            $result = mysqli_query($conn, $sql);
+            $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $products;
+
         }
     ?>
 
@@ -61,7 +73,7 @@
     <div class="main_content">
         <p class='subheading'>My Products</p>
                 <br>
-                <a href = "addproduct.html"><button class="btn">Add Product +</button></a>
+                <a href = "addproduct.php"><button class="btn">Add Product +</button></a>
                 <button class="btn2" id="deleteEvent"><img src = "resources/images/trash.png" class = "delete">Delete</button>
               
                 <!-- Checkbox -->
@@ -107,20 +119,31 @@
                         <th>Stocks</th>
                         <th>Sales</th>
                     </tr>
-                    <tr>
-                        <td><input type="checkbox" id="product1" name="product1" value="product1"></td>
-                        <td><a href="#"><img src = "resources/images/1.png" style="width: 10em; float:left; margin-top: 10px;"><br><br><br><b style="margin-left: 20px;">Cotton T-shirt</b></a></td>
-                        <td>&#8369; 100</td>
-                        <td>123</td>
-                        <td>123 (altho dili ko sure if number of items sold ni or profit)</td>
-                    </tr>
-                    
-                    <!-- Insert events from database -->
-                    <tbody id="productsdata">
-                        <tr>
-                            <td colspan="5" class="loading_message"><br><br><br>LOADING DATA</td>
-                        </tr>
-                    </tbody>
+                    <?php
+                        $products=getallproducts();
+                        if (count($products) == 0) {
+                            echo
+                            "<tbody id='productsdata'>
+                                <tr>
+                                    <td colspan='5' class='loading_message'><br><br><br>LOADING DATA</td>
+                                </tr>
+                            </tbody>";
+                        } else {
+
+                            foreach ($products as $product) {
+                                echo
+                                "<tr>
+                                <td><input type='checkbox' id='product1' name='product1' value='".$product['id']."'></td>
+                                <td><a href='product.php?id=".$product['id']."'><img src = '".$product['imagepath']."' style='width: 10em; float:left; margin-top: 10px;'>
+                                <br><br><br>
+                                <b class='clearselection'style='margin-left: 20px;'>".$product['name']."</b></a></td>
+                                <td>&#8369; ".$product['price']."</td>
+                                <td>".$product['quantity']."</td>
+                                <td>will add later kay this needs access to another table that doesnt yet exist</td>
+                                <tr>";
+                            }
+                        }
+                    ?>
                 </table>
             </div>
 </body>

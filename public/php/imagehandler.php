@@ -56,6 +56,5 @@ function retrieveImages($id) {
     foreach ($images as $row) {
         $imagepatharray[]=$row['path'];
     }
-    
     return $imagepatharray;
 }
