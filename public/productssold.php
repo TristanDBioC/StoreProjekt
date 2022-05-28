@@ -107,6 +107,13 @@
                         <th>Stocks</th>
                         <th>Sales</th>
                     </tr>
+                    <tr>
+                        <td><input type="checkbox" id="product1" name="product1" value="product1"></td>
+                        <td><a href="#"><img src = "resources/images/1.png" style="width: 10em; float:left; margin-top: 10px;"><br><br><br><b style="margin-left: 20px;">Cotton T-shirt</b></a></td>
+                        <td>&#8369; 100</td>
+                        <td>123</td>
+                        <td>123 (altho dili ko sure if number of items sold ni or profit)</td>
+                    </tr>
                     
                     <!-- Insert events from database -->
                     <tbody id="productsdata">
