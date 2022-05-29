@@ -17,6 +17,8 @@
 <body>
 <?php
         require 'php/imagehandler.php';
+        require 'php/cartscript.php';
+
         function productfetch($id) {
             $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
             $sql = "SELECT * FROM product WHERE id='".$id."'";
@@ -39,6 +41,7 @@
             // returns in from 0 to 5'
             return 3;
         }
+
         if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
         }
@@ -52,6 +55,23 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_POST['Logout'])){
                 logoutUser();
+            }
+            if (isset($_POST['addcart'])) {
+                $product = productfetch($_GET['id']);
+                if(cartexist($_SESSION['user']['activecart_id'])) {
+                    addtocart($_SESSION['user']['id'],
+                            $_SESSION['user']['activecart_id'],
+                            $product['id'],
+                            $_POST['quan'],
+                            $product['price']);
+                } else {
+                    initcart($_SESSION['user']['id']);
+                    addtocart($_SESSION['user']['id'],
+                            $_SESSION['user']['activecart_id'],
+                            $product['id'],
+                            $_POST['quan'],
+                            $product['price']);
+                }
             }
         }
 
@@ -177,7 +197,7 @@
 
             <form id="product" class="product" action="" method="post">
                 <span class="quantity buttons_added">
-                    <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="
+                    <input type="button" value="-" class="minus"><input type="number" name="quan" step="1" min="1" max="
                     <?php
                         echo $product['quantity'];
                     ?>
@@ -187,8 +207,8 @@
                     <?php
                         echo $product['quantity'];
                     ?> left</p>
-            <input type="submit" value="Add to cart" class="btn">
-            <input type="submit" value="Buy Now" class="btn1">
+            <input type="submit" value="Add to cart" name='addcart' class="btn">
+            <!-- <input type="submit" value="Buy Now" class="btn1"> -->
             </form> 
             <br>
             <div class="reviews">
