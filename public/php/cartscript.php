@@ -56,5 +56,22 @@ function cartexist($id) {
 
  }
 
+ function checkcredential($memberid, $prodid, $quantity) {
+     $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+     $sql = "SELECT * FROM product WHERE id='".$prodid."'";
+     $result = mysqli_query($conn, $sql);
+     $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+     if ($product[0]['quantity'] < $quantity) {
+         echo "not enough items";
+         return FALSE;
+     }
+     if ($product[0]['sellerid'] == $memberid) {
+         echo "cant buy your own product";
+         return FALSE;
+     }
+     return TRUE;
+
+ }
+
 
  ?>

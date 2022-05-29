@@ -10,6 +10,14 @@
 </head>
 <body>
 <?php
+
+        function getallcartitems() {
+            $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+            $sql = "SELECT * FROM `cart-product` WHERE cartid='".$_SESSION['user']['activecart_id']."'";
+            $result = mysqli_query($conn, $sql);
+            $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $products;
+        }
         if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
         }
@@ -21,7 +29,9 @@
         }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            logoutUser();
+            if (isset($_POST['Logout'])){
+                logoutUser();
+            }
         }
     ?>
 

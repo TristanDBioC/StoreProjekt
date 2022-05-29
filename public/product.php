@@ -59,18 +59,26 @@
             if (isset($_POST['addcart'])) {
                 $product = productfetch($_GET['id']);
                 if(cartexist($_SESSION['user']['activecart_id'])) {
-                    addtocart($_SESSION['user']['id'],
-                            $_SESSION['user']['activecart_id'],
-                            $product['id'],
-                            $_POST['quan'],
-                            $product['price']);
+                    if (checkcredential($_SESSION['user']['id'], $product['id'],$_POST['quan'])) {
+                        addtocart($_SESSION['user']['id'],
+                                $_SESSION['user']['activecart_id'],
+                                $product['id'],
+                                $_POST['quan'],
+                                $product['price']);
+                    } else {
+                        // INSERT SOME SORT OF ERROR PROMPT THAT YOU CANT BUY THIS ITEM
+                    }
                 } else {
-                    initcart($_SESSION['user']['id']);
-                    addtocart($_SESSION['user']['id'],
-                            $_SESSION['user']['activecart_id'],
-                            $product['id'],
-                            $_POST['quan'],
-                            $product['price']);
+                    if (checkcredential($_SESSION['user']['id'], $product['id'],$_POST['quan'])){
+                        initcart($_SESSION['user']['id']);
+                        addtocart($_SESSION['user']['id'],
+                                $_SESSION['user']['activecart_id'],
+                                $product['id'],
+                                $_POST['quan'],
+                                $product['price']);
+                    } else {
+                        // INSERT SOME SORT OF ERROR PROMPT THAT YOU CANT BUY THIS ITEM
+                    }
                 }
             }
         }

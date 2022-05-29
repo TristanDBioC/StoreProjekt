@@ -125,7 +125,7 @@
                             echo
                             "<tbody id='productsdata'>
                                 <tr>
-                                    <td colspan='5' class='loading_message'><br><br><br>LOADING DATA</td>
+                                    <td colspan='5' class='loading_message'><br><br><br>NO DATA FOUND</td>
                                 </tr>
                             </tbody>";
                         } else {
