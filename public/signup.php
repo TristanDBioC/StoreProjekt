@@ -49,13 +49,13 @@
                                 $pass."','".
                                 $address."','".
                                 $contact."','".
-                                $displayname."',".
-                                $isseller.",'')";
+                                $displayname."','".
+                                $isseller."','".
+                                $displayname."','0')";
 
             $result = mysqli_query($conn, $sql);
             if ($result) {
-                print_r("hello word");
-                // Move to next page
+                header('Location: signin.php');
             } else {
                 echo "Failed";
                 // do something

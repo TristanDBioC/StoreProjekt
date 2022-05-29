@@ -20,6 +20,9 @@
 
         if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
+            if ($_SESSION['user']['isseller'] == 0) {
+                header('Location: editprofile.php');
+            }
         }
 
         function logoutUser() {
