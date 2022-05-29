@@ -56,7 +56,7 @@
                                 $category."','".
                                 $type."','".
                                 $color."','".
-                                $size."')";
+                                $size."', '0')";
             $result = mysqli_query($conn, $sql);
 
             if ($result) {

@@ -139,7 +139,7 @@
                                 <b class='clearselection'style='margin-left: 20px;'>".$product['name']."</b></a></td>
                                 <td>&#8369; ".$product['price']."</td>
                                 <td>".$product['quantity']."</td>
-                                <td>will add later kay this needs access to another table that doesnt yet exist</td>
+                                <td>".$product['amount_sold']."</td>
                                 <tr>";
                             }
                         }
