@@ -141,12 +141,12 @@ font-weight: bold;
     height: 77%;
   }
   
-  .events, .eventsdata {
+  .cart, .cartdata {
     width: 100%;
     table-layout: fixed;
   }
   
-  .events th {
+  .cart th {
     font-size: 25px;
   }
   
@@ -155,7 +155,7 @@ font-weight: bold;
   }
   
   colgroup .Product {
-    width: 35%;
+    width: 67%;
   }
   
   colgroup .Unit_Price, .QTY, .Subtotal {
