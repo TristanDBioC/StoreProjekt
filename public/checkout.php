@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +13,25 @@
     <title>Checkout | Tinda</title>
 </head>
 <body>
+    <?php
+        echo $_POST['cartid'];   
+        
+        function logoutUser() {
+            unset($_SESSION['user']);
+            unset($user);
+            header('Location: index.php');
+        }
+
+        if(isset($_SESSION['user'])) {
+            $user = $_SESSION['user'];
+        }
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (isset($_POST['Logout'])){
+                logoutUser();
+            }
+        }
+    ?>
     <a href=""><img src="resources/images/3.png" class="logo"></a>
     <p class="header">Checkout</p>
     

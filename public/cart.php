@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +21,15 @@
             $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
             return $products;
         }
+
+        function getnameandimage($prodid) {
+            $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+            $sql = "SELECT name, imagepath FROM product WHERE id='".$prodid."'";
+            $result = mysqli_query($conn, $sql);
+            $prod = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $prod[0];
+        }
+        
         if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
         }
@@ -66,7 +78,7 @@
     </div>
     
     <div class="main_content">
-        <form id='cart' class='cart' action='' method='post'>
+        <form id='cart' class='cart' action='checkout.php' method='post'>
                     <!-- Checkbox -->
                     <div class="selectall">
                         <input type="checkbox" id="selectall" name="selectall">
@@ -99,24 +111,41 @@
                             <th>QTY</th>
                             <th>Subtotal</th>
                         </tr>
-                        <tr>
-                            <td><input type="checkbox" id="product1" name="product1" value="product1"></td>
-                            <td><a href="product.php"><img src = "resources/images/1.png" style="width: 10em; float:left; margin: 20px;"><br><br><br><b>Cotton T-shirt</b></a></td>
-                            <td>&#8369; 100</td>
-                            <td>5</td>
-                            <td>&#8369; 500</td>
-                        </tr>
+                        <?php
+                            $products = getallcartitems();
+                            $total = 0;
+                            if (count($products) == 0) {
+                                echo
+                                "<tbody id='cartdata'>
+                                    <tr>
+                                        <td colspan='5' class='loading_message'><br><br><br>cart is Empty</td>
+                                    </tr>
+                                </tbody>";
+                            } else {
+                                foreach ($products as $product) {
+                                    $prodpathname = getnameandimage($product['productid']);
+                                    $name = $prodpathname['name'];
+                                    $path = $prodpathname['imagepath'];
+                                    $total += $product['total'];
+                                    echo
+                                    "<tr>
+                                        <td><input type='checkbox' id='product1' name='product1' value='product1'></td>
+                                        <td><a href='product.php?id=".$product['productid']."'><img src = '".$path."' style='width: 10em; float:left; margin: 20px;'>
+                                        <br><br><br><b class='clearselection'>".$name."</b></a></td>
+                                        <td>&#8369; ".$product['total']/$product['quantity']."</td>
+                                        <td>".$product['quantity']."</td>
+                                        <td>&#8369; ".$product['total']."</td>
+                                    </tr>";
+                                }
+                            }
+                        ?>
                         
                         <!-- Insert events from database -->
-                        <tbody id="cartdata">
-                            <tr>
-                                <td colspan="5" class="loading_message"><br><br><br>LOADING DATA</td>
-                            </tr>
-                        </tbody>
                     </table>
                 </div>
+                <input type="hidden" name="cartid" value='<?php echo $_SESSION['user']['activecart_id'];?>'>
             <span class="checkout"><input type="submit" value="Check out"></span>
-            <span class="total">&#8369; 500</span>
+            <span class="total">&#8369; <?php echo $total;?></span>
             <span class="subHeader">Subtotal </span>        
             
         </form>

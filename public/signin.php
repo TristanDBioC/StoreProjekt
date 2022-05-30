@@ -44,7 +44,7 @@
                                             'displayname'=>$users[0]['displayname'],
                                             'isseller'=>$users[0]['isseller'],
                                             'sellername'=>$users[0]['sellername'],
-                                            'activecart_id'=>[0]['activecart_id']);
+                                            'activecart_id'=>$users[0]['activecart_id']);
                     header('Location: index.php');
                 }
             }
