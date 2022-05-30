@@ -14,7 +14,61 @@
 </head>
 <body>
     <?php
-        echo $_POST['cartid'];   
+        require 'php/cartscript.php';
+        function getallcartitems($cartid) {
+            if (!cartexist($_SESSION['user']['activecart_id'])) {
+                return array();
+            }
+            $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+            $sql = "SELECT * FROM `cart-product` WHERE cartid='".$cartid."'";
+            $result = mysqli_query($conn, $sql);
+            $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $products;
+        }
+
+        function getnameandimage($prodid) {
+            $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+            $sql = "SELECT name, imagepath FROM product WHERE id='".$prodid."'";
+            $result = mysqli_query($conn, $sql);
+            $prod = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $prod[0];
+        }
+
+        function getseller($prodid) {
+            $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+            $sql = "SELECT sellerid FROM product WHERE id='".$prodid."'";
+            $result = mysqli_query($conn, $sql);
+            $prod = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $prod[0]['sellerid'];
+        }
+
+        function checkout() {
+            $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+            // Set Sellersales
+            $prods = getallcartitems($_SESSION['user']['activecart_id']);
+            $grandtotal = 0;
+            foreach($prods as $product) {
+                $sellerid =  getseller($product['productid']);
+                $buyerid = $_SESSION['user']['id'];
+                $productid = $product['productid'];
+                $quantity = $product['quantity'];
+                $total = $product['total'];
+                $timestamp = time();
+                $sql = "INSERT INTO sales VALUES ('0','".
+                                                $sellerid."','".
+                                                $buyerid."','".
+                                                $productid."','".
+                                                $quantity."','".
+                                                $total."','".
+                                                $timestamp."')";
+                mysqli_query($conn, $sql);
+                $grandtotal += $total;
+            }
+            $sql = "UPDATE cart SET ischeckedout='1', total='".$grandtotal."' WHERE id='".$_SESSION['user']['activecart_id']."'";
+            $result = mysqli_query($conn, $sql);
+            
+            return $result;
+        }
         
         function logoutUser() {
             unset($_SESSION['user']);
@@ -29,6 +83,11 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_POST['Logout'])){
                 logoutUser();
+            }
+            if (isset($_POST['checkout'])) {
+                if(checkout()) {
+                    header('Location: index.php');
+                }
             }
         }
     ?>
@@ -64,18 +123,30 @@
                     <th>QTY</th>
                     <th>Subtotal</th>
                 </tr>
-                <tr>
-                    <th><a href=""><img src="resources/images/1.png" style="width: 10em; float: left; margin: 20px;"><br><br><br>Orange Shirt</a></th>
-                    <th>&#8369; 100</th>
-                    <th>3</th>
-                    <th>&#8369; 300</th>
-                </tr>
+                <?php
+                    $products = getallcartitems($_SESSION['user']['activecart_id']);
+                    $total = 0;
+                    if (count($products) == 0) {
+                        header('Location: cart.php');
+                    } else {
+                        foreach ($products as $product) {
+                            $prodpathname = getnameandimage($product['productid']);
+                            $name = $prodpathname['name'];
+                            $path = $prodpathname['imagepath'];
+                            $total += $product['total'];
+                            echo
+                            "<tr>
+                                <th><a href='product.php?id=".$product['productid']."'>
+                                <img src='".$path."' style='width: 10em; float: left; margin: 20px;'>
+                                <br><br><br>Orange Shirt</a></th>
+                                <th>&#8369; ".$product['total']/$product['quantity']."</th>
+                                <th>".$product['quantity']."</th>
+                                <th>&#8369; ".$product['total']."</th>
+                            </tr>";
+                        }
+                    }
+                ?>
             <!-- Insert events from database -->
-            <tbody id="checkoutdata">
-                <tr>
-                    <td colspan="4" class="loading_message"><br><br><br>LOADING DATA</td>
-                </tr>
-            </tbody>
         </table>
     </div>
 
@@ -105,14 +176,14 @@
         <br><br>
 
         <!--Payment breakdown-->
-        <p class="paymentHeading">Merchandise Subtotal</p><p class="sub_total">&#8369; 400</p>
+        <p class="paymentHeading">Merchandise Subtotal</p><p class="sub_total">&#8369; <?php echo $total;?></p>
         <br><br>
         <p class="paymentHeading">Shipping Total</p><p class="shipping">&#8369; 50</p>
         <br><br>
-        <p class="paymentHeading">Total Payment</p><p class="total">&#8369; 450</p>
+        <p class="paymentHeading">Total Payment</p><p class="total">&#8369; <?php echo $total+50;?></p>
 
 
-        <input type="submit" value="Place Order">
+        <input type="submit" name='checkout' value="Place Order">
 
     </form>
 </body>

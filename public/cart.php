@@ -13,8 +13,12 @@
 </head>
 <body>
 <?php
+        require 'php/cartscript.php';
 
         function getallcartitems() {
+            if (!cartexist($_SESSION['user']['activecart_id'])) {
+                return array();
+            }
             $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
             $sql = "SELECT * FROM `cart-product` WHERE cartid='".$_SESSION['user']['activecart_id']."'";
             $result = mysqli_query($conn, $sql);
@@ -29,7 +33,7 @@
             $prod = mysqli_fetch_all($result, MYSQLI_ASSOC);
             return $prod[0];
         }
-        
+
         if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
         }
@@ -43,6 +47,9 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_POST['Logout'])){
                 logoutUser();
+            }
+            if (isset($_POST['submit'])) {
+                header('Location: checkout.php');
             }
         }
     ?>
@@ -78,7 +85,7 @@
     </div>
     
     <div class="main_content">
-        <form id='cart' class='cart' action='checkout.php' method='post'>
+        <form id='cart' class='cart' action='' method='post'>
                     <!-- Checkbox -->
                     <div class="selectall">
                         <input type="checkbox" id="selectall" name="selectall">
@@ -118,7 +125,7 @@
                                 echo
                                 "<tbody id='cartdata'>
                                     <tr>
-                                        <td colspan='5' class='loading_message'><br><br><br>cart is Empty</td>
+                                        <td colspan='5' class='loading_message'><br><br><br>cart is empty</td>
                                     </tr>
                                 </tbody>";
                             } else {
@@ -143,8 +150,9 @@
                         <!-- Insert events from database -->
                     </table>
                 </div>
-                <input type="hidden" name="cartid" value='<?php echo $_SESSION['user']['activecart_id'];?>'>
-            <span class="checkout"><input type="submit" value="Check out"></span>
+                <input type="hidden" name="cartid" value='
+                <?php echo $_SESSION['user']['activecart_id'];?>'>
+            <span class="checkout"><input type="submit" name='submit' value="Check out"></span>
             <span class="total">&#8369; <?php echo $total;?></span>
             <span class="subHeader">Subtotal </span>        
             
