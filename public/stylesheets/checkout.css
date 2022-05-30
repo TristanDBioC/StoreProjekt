@@ -75,21 +75,17 @@ hr {
     height: 77%;
   }
   
-  .events, .eventsdata {
+  .checkout, .checkoutdata {
     width: 100%;
     table-layout: fixed;
   }
   
-  .events th {
+  .checkout th {
     font-size: 15px;
   }
   
-  colgroup .tick {
-    width: 3%;
-  }
-  
   colgroup .Product {
-    width: 52%;
+    width: 55%;
   }
   
   colgroup .Unit_Price, .QTY, .Subtotal {
@@ -112,17 +108,7 @@ hr {
     font-size: 50px !important;
   }
   
-  .selectall {
-    margin-left: 3px;
-    display: inline-block;
-  }
-  
-  .clearselection {
-    display: inline-block;
-    margin-left: 20px;
-    color:#FD3B72;
-    font-weight: bold;
-  }
+
   
   .clearselection:hover {
     cursor: pointer;

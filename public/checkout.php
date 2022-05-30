@@ -48,23 +48,11 @@
 
 
     <br><br><br><br><br>
-    <!-- Checkbox -->
-    <div class="selectall">
-        <input type="checkbox" id="selectall" name="selectall">
-        <label for="selectall">Select All</label>
-    </div>
-
-    <!-- Insert button to uncheck all checkboxes -->
-        <div class="clearselection" id="clear">
-        Clear Selection
-        </div>
-    
-
+   
     <!-- Display Table -->
-    <div class="container" id="eventtable">
-        <table class="events" id="events">
+    <div class="container" id="checkouttable">
+        <table class="checkout" id="checkout">
             <colgroup>
-                <col class="tick">
                 <col class="Product">
                 <col class="Unit_Price">
                 <col class="QTY">
@@ -72,15 +60,20 @@
             </colgroup>
                 <tr>
                     <th></th>
-                    <th></th>
                     <th>Unit Price</th>
                     <th>QTY</th>
                     <th>Subtotal</th>
                 </tr>
-            <!-- Insert events from database -->
-            <tbody id="eventsdata">
                 <tr>
-                    <td colspan="5" class="loading_message"><br><br><br>LOADING DATA</td>
+                    <th><a href=""><img src="resources/images/1.png" style="width: 10em; float: left; margin: 20px;"><br><br><br>Orange Shirt</a></th>
+                    <th>&#8369; 100</th>
+                    <th>3</th>
+                    <th>&#8369; 300</th>
+                </tr>
+            <!-- Insert events from database -->
+            <tbody id="checkoutdata">
+                <tr>
+                    <td colspan="4" class="loading_message"><br><br><br>LOADING DATA</td>
                 </tr>
             </tbody>
         </table>
