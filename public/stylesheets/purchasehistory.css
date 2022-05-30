@@ -246,7 +246,7 @@ html * {
   .clearselection {
     display: inline-block;
     margin-left: 20px;
-    color:#00BBD1;
+    color:#FD3B72;
     font-weight: bold;
   }
   
@@ -261,7 +261,9 @@ html * {
 
   .prod{
       max-width: 200px;
-      height: auto;
+      width: 10em;
+      float: left;
+      margin:20px;
   }
 
   .prodName {

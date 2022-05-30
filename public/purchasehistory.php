@@ -14,6 +14,22 @@
 </head>
 <body>
 <?php
+        function getallpurchases() {
+            $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+            $sql = "SELECT * FROM sales WHERE buyerid='".$_SESSION['user']['id']."'";
+            $result = mysqli_query($conn, $sql);
+            $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $products;
+        }
+
+        function getnameandimage($prodid) {
+            $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+            $sql = "SELECT name, imagepath FROM product WHERE id='".$prodid."'";
+            $result = mysqli_query($conn, $sql);
+            $prod = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $prod[0];
+        }
+
         if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
         }
@@ -25,7 +41,9 @@
         }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            logoutUser();
+            if (isset($_POST['Logout'])){
+                logoutUser();
+            }
         }
     ?>
 
@@ -101,20 +119,37 @@
                         <th>Subtotal</th>
                         <th></th>
                     </tr>
-                    <tr>
-                        <td><a href="product.php"><img src="resources/images/1.png" class="prod"><p class="prodName">Cotton T-shirt</p></a></td>
-                        <td>&#8369; 100</td>
-                        <td>2</td>
-                        <td>&#8369; 200</td>
-                        <td><a href="review.php">Review</td>
-                    </tr>
-                    
+                    <?php
+                        $products = getallpurchases();
+                        $total = 0;
+                        if (count($products) == 0) {
+                            echo 
+                            "<tbody id='eventsdata'>
+                                <tr>
+                                    <td colspan='6' class='loading_message'>
+                                    <br><br><br>No Purchases</td>
+                                </tr>
+                            </tbody>";
+                        } else {
+                            foreach($products as $product) {
+                                $prodpathname = getnameandimage($product['productid']);
+                                $name = $prodpathname['name'];
+                                $path = $prodpathname['imagepath'];
+                                echo
+                                    "<tr>
+                                        <td><a href='product.php?id=".$product['productid']."'><img src = '".$path."' style='width: 10em; float:left; margin: 20px;'>
+                                        <br><br><br><b class='clearselection'>".$name."</b></a></td>
+                                        <td>&#8369; ".$product['total']/$product['quantity']."</td>
+                                        <td>".$product['quantity']."</td>
+                                        <td>&#8369; ".$product['total']."</td>
+                                        <td><a href='review.php'>Review</td>
+                                    </tr>";
+                            }
+                        }
+                        
+                        ?>
+                                            
                     <!-- Insert events from database -->
-                    <tbody id="eventsdata">
-                        <tr>
-                            <td colspan="6" class="loading_message"><br><br><br>LOADING DATA</td>
-                        </tr>
-                    </tbody>
                 </table>
 
     </div>
