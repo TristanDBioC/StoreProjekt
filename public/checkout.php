@@ -91,7 +91,7 @@
             }
         }
     ?>
-    <a href=""><img src="resources/images/3.png" class="logo"></a>
+    <a href="index.php"><img src="resources/images/3.png" class="logo"></a>
     <p class="header">Checkout</p>
     
     

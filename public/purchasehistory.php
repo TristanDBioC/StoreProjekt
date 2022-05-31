@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="SoT">
-            <a href="#">Sell on Tinda</a>
+            <a href="addproduct.php">Sell on Tinda</a>
         </div>
         <div class="searchbar">
             <form>
