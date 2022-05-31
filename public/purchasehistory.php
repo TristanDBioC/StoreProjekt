@@ -142,11 +142,10 @@
                                         <td>&#8369; ".$product['total']/$product['quantity']."</td>
                                         <td>".$product['quantity']."</td>
                                         <td>&#8369; ".$product['total']."</td>
-                                        <td><a href='review.php'>Review</td>
+                                        <td><a href='review.php?id=".$product['productid']."'>Review</td>
                                     </tr>";
                             }
-                        }
-                        
+                        }                        
                         ?>
                                             
                     <!-- Insert events from database -->

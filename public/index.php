@@ -57,7 +57,7 @@
             </form>
         </div>
         <div class="cart">
-            <a href=#><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
+            <a href="cart.php"><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
         </div>   
         <?php
             if(!isset($_SESSION['user'])) {
@@ -67,7 +67,7 @@
                             <div class='acdrop'>
                                 <a href='editprofile.php'class='ep'>" . $user['username'] . "</a>
                                 <div class='dropcont'>
-                                    <a href='#' class='vp'>View Purchases</a>
+                                    <a href='purchasehistory.php' class='vp'>View Purchases</a>
                                     <form method='POST'>
                                         <input type='submit' value='Logout' name='Logout' class='logout'>
                                     </form>
@@ -84,6 +84,7 @@
         </div>
         <div class="bcats">
             <div class="women">
+<<<<<<< HEAD
                 <a href="productpage.php?category=women"><img src="resources/images/category - women.png" alt="Women"></a>
             </div>
             <div class="men">
@@ -91,6 +92,15 @@
             </div>
             <div class="children">
                 <a href="productpage.php?category=children"><img src="resources/images/category - children.png" alt="Children"></a>
+=======
+                <a href="men.php"><img src="resources/images/category - women.png" alt="Women"></a>
+            </div>
+            <div class="men">
+                <a href="women.php"><img src="resources/images/category - men.png" alt="Men"></a>
+            </div>
+            <div class="children">
+                <a href="children.php"><img src="resources/images/category - children.png" alt="Children"></a>
+>>>>>>> cc01e5aeb9ef190d27d6dfe48f3b23ccbfea3974
             </div>
         </div>
     </div>
