@@ -86,7 +86,7 @@
 
 <div class="header">
     <div class="icon">
-            <a href="index.php"></a><img src="resources/images/5.png" alt="Tinda" style=""></a>
+            <a href="index.php"><img src="resources/images/5.png" alt="Tinda" style=""></a>
     </div>
         <div class="notifc">
             <div class="notifs">
@@ -115,70 +115,71 @@
         ?>
     </div>
 
-    <form id="addproduct" class="addproduct" action="" method="post" enctype="multipart/form-data">
-        <p class="subheader">Add a new product</p>
+    <div class="main_content">
+        <form id="addproduct" class="addproduct" action="" method="post" enctype="multipart/form-data">
+            <p class="subheader">Add a new product</p>
 
-        <input required="required" placeholder="Input product name" type="text" class="prodname" name="prodname" value=""><br>
-       
-        <textarea required="required" placeholder="Describe your product" class="desc" name="desc"></textarea><br>
+            <input required="required" placeholder="Input product name" type="text" class="prodname" name="prodname" value=""><br>
+        
+            <textarea required="required" placeholder="Describe your product" class="desc" name="desc"></textarea><br>
 
-        <div class="custom-select" style="width:200px;">
-            <select name="category">
-                <option value="0">Select a category:</option>
-                <option value="Men">Men</option>
-                <option value="Women">Women</option>
-                <option value="Children">Children</option>
-            </select>
-        </div>
+            <div class="custom-select" style="width:200px;">
+                <select name="category">
+                    <option value="0">Select a category:</option>
+                    <option value="Men">Men</option>
+                    <option value="Women">Women</option>
+                    <option value="Children">Children</option>
+                </select>
+            </div>
 
-        <div class="custom-select" style="width:200px;">
-            <select name='type'>
-                <option value="0">Select Type:</option>
-                <option value="Top">Top</option>
-                <option value="Bottom">Bottom</option>
-            </select>
-        </div>
+            <div class="custom-select" style="width:200px;">
+                <select name='type'>
+                    <option value="0">Select Type:</option>
+                    <option value="Top">Top</option>
+                    <option value="Bottom">Bottom</option>
+                </select>
+            </div>
 
-        <div class="custom-select" style="width:200px;">
-            <select name='color'>
-                <option value="0">Select Color:</option>
-                <option value="Red">Red</option>
-                <option value="Orange">Orange</option>
-                <option value="Yellow">Yellow</option>
-                <option value="Green">Green</option>
-                <option value="Blue">Blue</option>
-                <option value="Indigo">Indigo</option>
-                <option value="Violet">Violet</option>
-                <option value="Black">Black</option>
-                <option value="White">White</option>
-                <option value="Brown">Brown</option>
-                <option value="Grey">Grey</option>
-            </select>
-        </div>
+            <div class="custom-select" style="width:200px;">
+                <select name='color'>
+                    <option value="0">Select Color:</option>
+                    <option value="Red">Red</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Green">Green</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Indigo">Indigo</option>
+                    <option value="Violet">Violet</option>
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Brown">Brown</option>
+                    <option value="Grey">Grey</option>
+                </select>
+            </div>
 
-        <div class="custom-select" style="width:200px;">
-            <select name='size'>
-                <option value="0">Select Size:</option>
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-            </select>
-        </div>
+            <div class="custom-select" style="width:200px;">
+                <select name='size'>
+                    <option value="0">Select Size:</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
 
-        <br><br><br><br><br>
+            <br><br><br><br><br>
 
-        Upload images of your product:
-        <input required="required "type="file" class="uploadImage" name="img[]" multiple='multiple'><br>
+            Upload images of your product:
+            <input required="required "type="file" class="uploadImage" name="img[]" multiple='multiple'><br>
 
-        Stock <input required="required" placeholder="0" type="number" class="stock" name="stock" min="1" max=""><br>
+            Stock <input required="required" placeholder="0" type="number" class="stock" name="stock" min="1" max=""><br>
 
-        Pricing<input required="required" placeholder='&#8369;0.00' type="currency" class="price" name="price" value=""  /><br>
+            Pricing<input required="required" placeholder='&#8369;0.00' type="currency" class="price" name="price" value=""  /><br>
 
-        <input type="submit" value="SUBMIT" name='submit'>
-    </form>
-
+            <input type="submit" value="SUBMIT" name='submit' class="addProd">
+        </form>
+    </div>
     <?php
 
     ?>

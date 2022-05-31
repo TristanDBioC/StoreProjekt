@@ -42,7 +42,7 @@
 
     <div class="header">
         <div class="icon">
-            <a href="index.php"></a><img src="resources/images/5.png" alt="Tinda" style=""></a>
+            <a href="index.php"><img src="resources/images/5.png" alt="Tinda" style=""></a>
         </div>
         <div class="notifc">
             <div class="notifs">

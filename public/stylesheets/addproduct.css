@@ -5,6 +5,10 @@ html * {
     color: #333;
 }
 
+.main_content {
+  margin: 0 2% 2% 2%;
+}
+
 :root {
   --fontsize: 1.375em;
   --topspace: 5.5em;
@@ -89,7 +93,7 @@ html * {
 
 /*SUBMIT*/
 
-input[type="submit"] {
+.addProd {
     border-radius: 0.2rem;
     background-color: #FD3B72;
     font-weight: bold;
@@ -103,7 +107,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.addProd:hover {
     background-color: #FF6C5A;
     color: white;
 }
