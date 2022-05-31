@@ -56,7 +56,7 @@
             </form>
         </div>
         <div class="cart">
-            <a href=#><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
+            <a href="cart.php"><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
         </div>   
         <div class="notifc">
             <div class="notifs">
@@ -72,7 +72,7 @@
                             <div class='acdrop'>
                                 <a href='editprofile.php'class='ep'>" . $user['username'] . "</a>
                                 <div class='dropcont'>
-                                    <a href='#' class='vp'>View Purchases</a>
+                                    <a href='purchasehistory.php' class='vp'>View Purchases</a>
                                     <form method='POST'>
                                         <input type='submit' value='Logout' name='Logout' class='logout'>
                                     </form>
@@ -89,13 +89,13 @@
         </div>
         <div class="bcats">
             <div class="women">
-                <img src="resources/images/category - women.png" alt="Women">
+                <a href="men.php"><img src="resources/images/category - women.png" alt="Women"></a>
             </div>
             <div class="men">
-                <img src="resources/images/category - men.png" alt="Men">
+                <a href="women.php"><img src="resources/images/category - men.png" alt="Men"></a>
             </div>
             <div class="children">
-                <img src="resources/images/category - children.png" alt="Children">
+                <a href="children.php"><img src="resources/images/category - children.png" alt="Children"></a>
             </div>
         </div>
     </div>

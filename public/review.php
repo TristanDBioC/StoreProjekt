@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="This is Tinda's product review page.">
     <link rel="stylesheet" href="stylesheets/review.css">
+    <link rel="stylesheet" href="stylesheets/dropdown.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/images/8.png" />
     <title>Leave a Review | Tinda</title>
@@ -103,8 +104,57 @@
         $product = productfetch($_GET['id']);
     ?>
     
-    <a href=""><img src="resources/images/3.png" class="logo"></a>
-    <p class="header">Leave a review:</p>
+    <div class="header">
+        <div class="icon">
+            <a href="index.php"><img src="resources/images/3.png" alt="Tinda" style=""></a>
+        </div>
+        <div class="hcatscont">
+            <div class="hcats">
+                <p class="drop">Categories</p>
+                <div class="dropcont">
+                    <a href="men.php">Men</a>
+                    <a href="women.php">Women</a>
+                    <a href="children.php">Children</a>
+                </div>
+            </div>
+        </div>
+        <div class="SoT">
+            <!-- MAKE THIS CONDITIONAL IF USER IS SELLER -->
+            <a href="addproduct.php">Sell on Tinda</a>  
+        </div>
+        <div class="searchbar">
+            <form>
+            <input type="text" placeholder="  Look for great finds on Tinda!">
+            <button type="submit" class="search"><img src="resources/images/search.png" alt=""></button>
+            </form>
+        </div>
+        <div class="cart">
+            <a href="cart.php"><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
+        </div>   
+        <div class="notifc">
+            <div class="notifs">
+                <img src="resources/images/notifs.png" alt="Notifications" class="notifi">
+                <p class="notifp">Notifications</p>
+            </div>
+        </div>
+        <?php
+            if(!isset($_SESSION['user'])) {
+                echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
+            } else {
+                echo    "<div class='accs'>
+                            <div class='acdrop'>
+                                <a href='editprofile.php'class='ep'>" . $user['username'] . "</a>
+                                <div class='dropcont'>
+                                    <a href='purchasehistory.php' class='vp'>View Purchases</a>
+                                    <form method='POST'>
+                                        <input type='submit' value='Logout' name='Logout' class='logout'>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>";
+            }
+        ?>
+    </div>
 
     <?php
         $prodpathname = getnameandimage($product['id']);
@@ -145,7 +195,7 @@
                 ?></textarea><br>
         </div>
         <br><br><br><br>
-        <input type="submit" value="SUBMIT" name='submit'>
+        <input type="submit" value="SUBMIT" name='submit' class="review">
     </form>
 </body>
 </html>
