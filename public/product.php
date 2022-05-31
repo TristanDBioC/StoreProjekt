@@ -18,6 +18,9 @@
 <?php
         require 'php/imagehandler.php';
         require 'php/cartscript.php';
+        require 'php/reviewscripts.php';
+
+
 
         function productfetch($id) {
             $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
@@ -33,12 +36,6 @@
             $result = mysqli_query($conn, $sql);
             $seller = mysqli_fetch_all($result, MYSQLI_ASSOC);
             return $seller[0]['sellername'];
-        }
-
-        function getrating($id) {
-            // ADD CODE LATER
-            // returns in from 0 to 5'
-            return 3;
         }
 
         if(isset($_SESSION['user'])) {
@@ -83,6 +80,8 @@
         }
 
         $product = productfetch($_GET['id']);
+        $reviews = getreviews($_GET['id']);
+        fetchreviewername($reviews);
 
     ?>
 
@@ -174,10 +173,10 @@
                 ?>
             </p></a>
 
-            <p class="rating"><?php echo getrating($product['id']);?></p>
+            <p class="rating"><?php echo averagerating($reviews);?></p>
             <div class="stars">
                 <?php
-                    for ($i = 0; $i<getrating($product['id']); $i++) {
+                    for ($i = 0; $i<round(averagerating($reviews)); $i++) {
                         echo "<div class='star'></div>";
                     }
                 ?>
@@ -221,15 +220,20 @@
             <div class="reviews">
                 <b style="font-size: 20px">Reviews</b>
                 <br><br>
-                <p class="user">Display Name</p><br>
-                <div class="stars2">
-                    <div class="star2"></div>
-                    <div class="star2"></div>
-                    <div class="star2"></div>
-                    <div class="star2"></div>
-                    <div class="star2"></div>
-                </div>
-                <p class="comment">Wow Amazing superb</p>
+                <?php
+                    foreach ($reviews as $review) {
+                        echo
+                            "<p class='user'>".$review['displayname']."</p><br>
+                            <div class='stars2'>";
+                        for ($i=0;$i<(int)$review['rating'];$i++) {
+                            echo "<div class='star2'></div>";
+                        }
+                        echo "
+                            </div>
+                            <p class='comment'>".$review['review']."</p> <br>";
+                    }
+                ?>
+                
             </div>
         </div>
         
