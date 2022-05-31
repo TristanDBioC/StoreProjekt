@@ -58,7 +58,7 @@
                             <div class="acdrop">
                                 <a href="editprofile.php"class="ep">' . $user['username'] . '</a>
                                 <div class="dropcont">
-                                    <a href="#" class="vp">View Purchases</a>
+                                    <a href="purchasehistory.php" class="vp">View Purchases</a>
                                     <form method="POST">
                                         <input type="submit" value="Logout" name="Logout" class="logout">
                                     </form>
