@@ -172,30 +172,32 @@
 
     <br>
 
-    <form id="rating" class="rating" action="" method="post">
-        <p class="label">Rate your order:</p>
-        <div class="rate">
-            <input type="radio" id="star5" name="rating" value="5"<?php if ($reviewexists && $rating==5) {echo 'checked';} ?> />
-            <label for="star5" title="text">5 stars</label>
-            <input type="radio" id="star4" name="rating" value="4"<?php if ($reviewexists && $rating==4) {echo 'checked';} ?> />
-            <label for="star4" title="text">4 stars</label>
-            <input type="radio" id="star3" name="rating" value="3"<?php if ($reviewexists && $rating==3) {echo 'checked';} ?> />
-            <label for="star3" title="text">3 stars</label>
-            <input type="radio" id="star2" name="rating" value="2"<?php if ($reviewexists && $rating==2) {echo 'checked';} ?> />
-            <label for="star2" title="text">2 stars</label>
-            <input type="radio" id="star1" name="rating" value="1"<?php if ($reviewexists && $rating==1) {echo 'checked';} ?> />
-            <label for="star1" title="text">1 star</label>
-        </div>
-        <div class="comment">
-            <p class="label">Leave a comment:</p><br>
-            <textarea required="required" class="desc" name="review"><?php
-                if ($reviewexists) {
-                    echo $review;
-                }
-                ?></textarea><br>
-        </div>
-        <br><br><br><br>
-        <input type="submit" value="SUBMIT" name='submit' class="review">
-    </form>
+    <div class="main_content">
+        <form id="rating" class="rating" action="" method="post">
+            <p class="label">Rate your order:</p>
+            <div class="rate">
+                <input type="radio" id="star5" name="rating" value="5"<?php if ($reviewexists && $rating==5) {echo 'checked';} ?> />
+                <label for="star5" title="text">5 stars</label>
+                <input type="radio" id="star4" name="rating" value="4"<?php if ($reviewexists && $rating==4) {echo 'checked';} ?> />
+                <label for="star4" title="text">4 stars</label>
+                <input type="radio" id="star3" name="rating" value="3"<?php if ($reviewexists && $rating==3) {echo 'checked';} ?> />
+                <label for="star3" title="text">3 stars</label>
+                <input type="radio" id="star2" name="rating" value="2"<?php if ($reviewexists && $rating==2) {echo 'checked';} ?> />
+                <label for="star2" title="text">2 stars</label>
+                <input type="radio" id="star1" name="rating" value="1"<?php if ($reviewexists && $rating==1) {echo 'checked';} ?> />
+                <label for="star1" title="text">1 star</label>
+            </div>
+            <div class="comment">
+                <p class="label">Leave a comment:</p><br>
+                <textarea required="required" class="desc" name="review"><?php
+                    if ($reviewexists) {
+                        echo $review;
+                    }
+                    ?></textarea><br>
+            </div>
+            <br><br><br><br>
+            <input type="submit" value="SUBMIT" name='submit' class="review">
+        </form>
+    </div>
 </body>
 </html>

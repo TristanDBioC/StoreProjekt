@@ -5,8 +5,8 @@ html * {
     color: black;
 }
 
-body {
-    margin: 2%;
+.main_content {
+    margin: 0 2% 2% 2%;
 }
 
 :root {
