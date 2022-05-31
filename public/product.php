@@ -25,7 +25,6 @@
             $result = mysqli_query($conn, $sql);
             $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
             return $product[0];
-
         }
 
         function sellernamefetch($id) {
@@ -160,7 +159,7 @@
                 <b>Description</b>
                 <?php
                     echo 
-                    "<p class='desc'>".$product['description']."</p>";
+                    "<p class='description'>".$product['description']."</p>";
                 ?>
             </div>
         </div>

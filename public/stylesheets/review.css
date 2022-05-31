@@ -63,7 +63,7 @@ body {
     resize: none;
     width: 70%;
     height: 150px;
-    padding: 1rem;
+    /* padding: 1rem; */
     float: left;
     margin-left: 190px;
     margin-top: -60px;
@@ -127,3 +127,4 @@ input[type="submit"]:hover {
     background-color: #FF6C5A;
     color: white;
 }
+
