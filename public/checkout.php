@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Tinda's checkout page.">
     <link rel="stylesheet" href="stylesheets/checkout.css">
+    <link rel="stylesheet" href="stylesheets/dropdown.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/images/8.png" />
     <title>Checkout | Tinda</title>
@@ -91,100 +92,127 @@
             }
         }
     ?>
-    <a href=""><img src="resources/images/3.png" class="logo"></a>
-    <p class="header">Checkout</p>
-    
-    
-    <br><br><br><br>
-    <hr>
-    <!--<img src="resources/images/location.png" class="location">-->
-    <p class="subheading">Delivery Address</p>
-    <br><br>
-    <p class="userAddress">Hibbard Ave, 6200 Dumaguete City, Negros Oriental, 6200</p><br>
-    <p class="userContactNumber">09123456789</p>
-    <hr class="line">
-    <p class="subheading">Products Ordered</p>
-
-
-    <br><br><br><br><br>
-   
-    <!-- Display Table -->
-    <div class="container" id="checkouttable">
-        <table class="checkout" id="checkout">
-            <colgroup>
-                <col class="Product">
-                <col class="Unit_Price">
-                <col class="QTY">
-                <col class="Subtotal">
-            </colgroup>
-                <tr>
-                    <th></th>
-                    <th>Unit Price</th>
-                    <th>QTY</th>
-                    <th>Subtotal</th>
-                </tr>
-                <?php
-                    $products = getallcartitems($_SESSION['user']['activecart_id']);
-                    $total = 0;
-                    if (count($products) == 0) {
-                        header('Location: cart.php');
-                    } else {
-                        foreach ($products as $product) {
-                            $prodpathname = getnameandimage($product['productid']);
-                            $name = $prodpathname['name'];
-                            $path = $prodpathname['imagepath'];
-                            $total += $product['total'];
-                            echo
-                            "<tr>
-                                <th><a href='product.php?id=".$product['productid']."'>
-                                <img src='".$path."' style='width: 10em; float: left; margin: 20px;'>
-                                <br><br><br>Orange Shirt</a></th>
-                                <th>&#8369; ".$product['total']/$product['quantity']."</th>
-                                <th>".$product['quantity']."</th>
-                                <th>&#8369; ".$product['total']."</th>
-                            </tr>";
-                        }
-                    }
-                ?>
-            <!-- Insert events from database -->
-        </table>
+    <div class="header">
+        <div class="icon">
+            <a href="index.php"><img src="resources/images/3.png" alt="Tinda" style=""></a>
+        </div>
+        <div class="notifc">
+            <div class="notifs">
+                <img src="resources/images/notifs.png" alt="Notifications" class="notifi">
+                <p class="notifp">Notifications</p>
+            </div>
+        </div>
+        <?php
+            if(!isset($user)) {
+                echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
+            } else {
+                echo    '<div class="accs">
+                            <div class="acdrop">
+                                <a href="editprofile.php"class="ep">' . $user['username'] . '</a>
+                                <div class="dropcont">
+                                    <a href="purchasehistory.php" class="vp">View Purchases</a>
+                                    <form method="POST">
+                                        <input type="submit" value="Logout" name="Logout" class="logout">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>';
+            }
+        ?>
+        <span class="subheader">Checkout</span>
     </div>
-
-
-    <!--Payment Method-->
-    <br>
-    <hr>
-    <p class="subheading">Payment Method</p>
-    <br><br><br><br><br>
-
-    <form id="newsletter" class="newsletter" action="" method="post">
-        <label class="form-control">
-            <input type="radio" name="paymentMethod" value="BDO"/>
-            BDO
-        </label>
-
-        <label class="form-control">
-            <input type="radio" name="paymentMethod" value="BPI"/>
-            BPI
-        </label>
-
-        <label class="form-control">
-            <input type="radio" name="paymentMethod" value="">
-            <input type="text" name="other_paymentMethod" placeholder="Other payment method"/>
-        </label>
-
+    
+    <div class="main_content">
+        <hr>
+        <!--<img src="resources/images/location.png" class="location">-->
+        <p class="subheading">Delivery Address</p>
         <br><br>
-
-        <!--Payment breakdown-->
-        <p class="paymentHeading">Merchandise Subtotal</p><p class="sub_total">&#8369; <?php echo $total;?></p>
-        <br><br>
-        <p class="paymentHeading">Shipping Total</p><p class="shipping">&#8369; 50</p>
-        <br><br>
-        <p class="paymentHeading">Total Payment</p><p class="total">&#8369; <?php echo $total+50;?></p>
+        <p class="userAddress">Hibbard Ave, 6200 Dumaguete City, Negros Oriental, 6200</p><br>
+        <p class="userContactNumber">09123456789</p>
+        <hr class="line">
+        <p class="subheading">Products Ordered</p>
 
 
-        <input type="submit" name='checkout' value="Place Order">
+        <br><br><br><br><br>
+    
+        <!-- Display Table -->
+        <div class="container" id="checkouttable">
+            <table class="checkout" id="checkout">
+                <colgroup>
+                    <col class="Product">
+                    <col class="Unit_Price">
+                    <col class="QTY">
+                    <col class="Subtotal">
+                </colgroup>
+                    <tr>
+                        <th></th>
+                        <th>Unit Price</th>
+                        <th>QTY</th>
+                        <th>Subtotal</th>
+                    </tr>
+                    <?php
+                        $products = getallcartitems($_SESSION['user']['activecart_id']);
+                        $total = 0;
+                        if (count($products) == 0) {
+                            header('Location: cart.php');
+                        } else {
+                            foreach ($products as $product) {
+                                $prodpathname = getnameandimage($product['productid']);
+                                $name = $prodpathname['name'];
+                                $path = $prodpathname['imagepath'];
+                                $total += $product['total'];
+                                echo
+                                "<tr>
+                                    <th><a href='product.php?id=".$product['productid']."'>
+                                    <img src='".$path."' style='width: 10em; float: left; margin: 20px;'>
+                                    <br><br><br>Orange Shirt</a></th>
+                                    <th>&#8369; ".$product['total']/$product['quantity']."</th>
+                                    <th>".$product['quantity']."</th>
+                                    <th>&#8369; ".$product['total']."</th>
+                                </tr>";
+                            }
+                        }
+                    ?>
+                <!-- Insert events from database -->
+            </table>
+        </div>
 
-    </form>
+
+        <!--Payment Method-->
+        <br>
+        <hr>
+        <p class="subheading">Payment Method</p>
+        <br><br><br><br><br>
+
+        <form id="newsletter" class="newsletter" action="" method="post">
+            <label class="form-control">
+                <input type="radio" name="paymentMethod" value="BDO"/>
+                BDO
+            </label>
+
+            <label class="form-control">
+                <input type="radio" name="paymentMethod" value="BPI"/>
+                BPI
+            </label>
+
+            <label class="form-control">
+                <input type="radio" name="paymentMethod" value="">
+                <input type="text" name="other_paymentMethod" placeholder="Other payment method"/>
+            </label>
+
+            <br><br>
+
+            <!--Payment breakdown-->
+            <p class="paymentHeading">Merchandise Subtotal</p><p class="sub_total">&#8369; <?php echo $total;?></p>
+            <br><br>
+            <p class="paymentHeading">Shipping Total</p><p class="shipping">&#8369; 50</p>
+            <br><br>
+            <p class="paymentHeading">Total Payment</p><p class="total">&#8369; <?php echo $total+50;?></p>
+
+
+            <input type="submit" name='checkout' value="Place Order" class="order">
+
+        </form>
+    </div>
 </body>
 </html>

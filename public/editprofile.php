@@ -8,23 +8,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Edit profile page.">
     <link rel="stylesheet" href="stylesheets/editprofile.css">
+    <link rel="stylesheet" href="stylesheets/dropdown.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/images/8.png" />
     <title>Edit Profile | Tinda</title>
 </head>
 <body>
     <?php
-        require 'php/scripts.php';
-
-        if (!isset($_SESSION['user'])) {
-            header('Location: index.php');
-        } else {
+        if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
-            if(!$user) {
-                echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
-            } else {
-                echo '<div class="accs"><a href="editprofile.php"class="ep">' . $user['username'] . '</a></div>';
-            }
+        }
+
+        function logoutUser() {
+            unset($_SESSION['user']);
+            unset($user);
+            header('Location: index.php');
+        }
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            logoutUser();
         }
 
         function displayisNotSeller() {
@@ -36,7 +38,7 @@
                 <input required='required' placeholder='Displayed Name' type='text' class='number' name='displayname' value=''><br><br>
                 <input required='required' placeholder='Address' type='text' class='address' name='address' value=''><br>
                 <input required='required' placeholder='Contact Number' type='number' class='number' name='number' value=''><br>
-                <input type='submit' name='submit' value='Save'>
+                <input type='submit' name='submit' value='Save' class='save'>
             </form>
             <form method='post'>
                 <input type='submit' name='becomeSeller', value='Register as Seller'>
@@ -55,8 +57,9 @@
                 <input required='required' placeholder='Address' type='text' class='address' name='address' value=''><br>
                 <input required='required' placeholder='Contact Number' type='number' class='number' name='number' value=''><br>
                 <p class='subheading'>Seller information</p>
-                <input required='required' placeholder='Seller Name' type='text' class='sellerName' name='sellername' value=''><br> 
-                <input type='submit' name='submit' value='Save'>
+                <input required='required' placeholder='Seller Name' type='text' class='sellerName' name='sellername' value=''><br><br><br><br>  
+                <a href='productssold.php'>View my Products > </a><br>
+                <input type='submit' name='submit' value='Save' class='save'>
             </form>
             </div>";
         }
@@ -64,7 +67,7 @@
 
     <div class="header">
         <div class="icon">
-            <img src="resources/images/3.png" alt="Tinda" style="">
+            <a href="index.php"><img src="resources/images/3.png" alt="Tinda" style=""></a>
         </div>
         <div class="hcatscont">
             <div class="hcats">
@@ -77,7 +80,8 @@
             </div>
         </div>
         <div class="SoT">
-            <a href="#">Sell on Tinda</a>
+            <!-- MAKE THIS CONDITIONAL IF USER IS SELLER -->
+            <a href="addproduct.php">Sell on Tinda</a>  
         </div>
         <div class="searchbar">
             <form>
@@ -86,7 +90,7 @@
             </form>
         </div>
         <div class="cart">
-            <a href=#><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
+            <a href="cart.php"><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
         </div>   
         <div class="notifc">
             <div class="notifs">
@@ -94,6 +98,23 @@
                 <p class="notifp">Notifications</p>
             </div>
         </div>
+        <?php
+            if(!isset($_SESSION['user'])) {
+                echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
+            } else {
+                echo    "<div class='accs'>
+                            <div class='acdrop'>
+                                <a href='editprofile.php'class='ep'>" . $user['username'] . "</a>
+                                <div class='dropcont'>
+                                    <a href='purchasehistory.php' class='vp'>View Purchases</a>
+                                    <form method='POST'>
+                                        <input type='submit' value='Logout' name='Logout' class='logout'>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>";
+            }
+        ?>
     </div>
 
     <div class="main_content">

@@ -89,7 +89,7 @@
 
     <div class="header">
         <div class="icon">
-            <a href="index.php"></a><img src="resources/images/3.png" alt="Tinda" style=""></a>
+            <a href="index.php"><img src="resources/images/3.png" alt="Tinda" style=""></a>
         </div>
         <div class="hcatscont">
             <div class="hcats">
@@ -102,7 +102,7 @@
             </div>
         </div>
         <div class="SoT">
-            <a href="#">Sell on Tinda</a>
+            <a href="addproduct.php">Sell on Tinda</a>
         </div>
         <div class="searchbar">
             <form>
