@@ -84,7 +84,6 @@
         </div>
         <div class="bcats">
             <div class="women">
-<<<<<<< HEAD
                 <a href="productpage.php?category=women"><img src="resources/images/category - women.png" alt="Women"></a>
             </div>
             <div class="men">
@@ -92,15 +91,6 @@
             </div>
             <div class="children">
                 <a href="productpage.php?category=children"><img src="resources/images/category - children.png" alt="Children"></a>
-=======
-                <a href="men.php"><img src="resources/images/category - women.png" alt="Women"></a>
-            </div>
-            <div class="men">
-                <a href="women.php"><img src="resources/images/category - men.png" alt="Men"></a>
-            </div>
-            <div class="children">
-                <a href="children.php"><img src="resources/images/category - children.png" alt="Children"></a>
->>>>>>> cc01e5aeb9ef190d27d6dfe48f3b23ccbfea3974
             </div>
         </div>
     </div>
