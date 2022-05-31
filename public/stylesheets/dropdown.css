@@ -14,8 +14,8 @@
     background-color: white;
     min-width: 10em;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
     font-weight: normal;
+    z-index: 1;
 }
 
 .dropcont a {
@@ -50,7 +50,7 @@
 
 .dropcont a:hover {background-color: #ddd;}
 
-.hcats:hover .dropcont {display: block;}
+.hcats:hover .dropcont {display: block; z-index: 3;}
 
 .ep:hover .dropcont {background-color: #ddd;}
 
