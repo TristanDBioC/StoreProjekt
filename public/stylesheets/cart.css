@@ -84,7 +84,7 @@ html * {
   font-weight: bold;
 }
 
-input[type="submit"] {
+.checkOut {
   border-radius: 0.2rem;
   background-color: #FD3B72;
   font-weight: bold;

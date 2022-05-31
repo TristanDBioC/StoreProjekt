@@ -7,6 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Tinda's shopping cart page.">
     <link rel="stylesheet" href="stylesheets/cart.css">
+    <link rel="stylesheet" href="stylesheets/dropdown.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/images/8.png" />
     <title>Shopping Cart | Tinda</title>
@@ -152,7 +153,7 @@
                 </div>
                 <input type="hidden" name="cartid" value='
                 <?php echo $_SESSION['user']['activecart_id'];?>'>
-            <span class="checkout"><input type="submit" name='submit' value="Check out"></span>
+            <span class="checkout"><input type="submit" name='submit' value="Check out" class="checkOut"></span>
             <span class="total">&#8369; <?php echo $total;?></span>
             <span class="subHeader">Subtotal </span>        
             
