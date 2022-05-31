@@ -11,6 +11,7 @@
     <title>Welcome to Tinda</title>
 
     <link rel="stylesheet" href="stylesheets/font.css">
+    <link rel="stylesheet" href="stylesheets/header.css">
     <link rel="stylesheet" href="stylesheets/index.css">
     <link rel="stylesheet" href="stylesheets/dropdown.css">
 </head>
@@ -39,9 +40,9 @@
             <div class="hcats">
                 <p class="drop">Categories</p>
                 <div class="dropcont">
-                    <a href="men.php">Men</a>
-                    <a href="women.php">Women</a>
-                    <a href="children.php">Children</a>
+                    <a href="productpage.php?category=men">Men</a>
+                    <a href="productpage.php?category=women">Women</a>
+                    <a href="productpage.php?category=children">Children</a>
                 </div>
             </div>
         </div>
@@ -51,19 +52,13 @@
         </div>
         <div class="searchbar">
             <form>
-            <input type="text" placeholder="  Look for great finds on Tinda!">
+            <input type="text" placeholder="Look for great finds on Tinda!">
             <button type="submit" class="search"><img src="resources/images/search.png" alt=""></button>
             </form>
         </div>
         <div class="cart">
             <a href=#><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
         </div>   
-        <div class="notifc">
-            <div class="notifs">
-                <img src="resources/images/notifs.png" alt="Notifications" class="notifi">
-                <p class="notifp">Notifications</p>
-            </div>
-        </div>
         <?php
             if(!isset($_SESSION['user'])) {
                 echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
@@ -89,13 +84,13 @@
         </div>
         <div class="bcats">
             <div class="women">
-                <img src="resources/images/category - women.png" alt="Women">
+                <a href="productpage.php?category=women"><img src="resources/images/category - women.png" alt="Women"></a>
             </div>
             <div class="men">
-                <img src="resources/images/category - men.png" alt="Men">
+                <a href="productpage.php?category=men"><img src="resources/images/category - men.png" alt="Men"></a>
             </div>
             <div class="children">
-                <img src="resources/images/category - children.png" alt="Children">
+                <a href="productpage.php?category=children"><img src="resources/images/category - children.png" alt="Children"></a>
             </div>
         </div>
     </div>
