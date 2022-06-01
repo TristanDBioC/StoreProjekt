@@ -120,7 +120,11 @@
     <?php
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST['submit'])) {
-                updateMember($user['username'],$_POST['number'],$_POST['displayname'],$_POST['sellername']);
+                if ($_SESSION['user']['isseller'] == 0) {
+                    updateMember($user['username'],$_POST['number'],$_POST['displayname'],$_POST['displayname']);
+                } else {
+                    updateMember($user['username'],$_POST['number'],$_POST['displayname'],$_POST['sellername']);
+                }
             }
             if (isset($_POST['becomeSeller'])) {
                 if (becomeSeller($user['username'])) {
