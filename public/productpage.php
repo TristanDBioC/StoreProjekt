@@ -114,7 +114,6 @@
         }
         if (isset($_GET['search'])) {
             $search = $_GET['search'];
-            echo $search;
             //unset($_GET['search']);
             filterbysearch($products, $search);
         }
@@ -186,7 +185,7 @@
                 </select>
                 <div class="typef">
                     <h2>Type</h2>
-                    <input type="checkbox" name="type[]" id="type" value="Top"
+                    <input type="checkbox" name="type[]" id="type" value="Top" class="chck"
                     <?php
                         if (isset($_GET['type'])) {
                             if (in_array('Top', $_GET['type']) ) {
@@ -195,7 +194,7 @@
                         }
                     ?>>
                     <label for="type1">Tops</label><br>
-                    <input type="checkbox" name="type[]" id="type" value="Bottom"
+                    <input type="checkbox" name="type[]" id="type" value="Bottom" class="chck"
                     <?php
                         if (isset($_GET['type'])) {
                             if (in_array('Bottom', $_GET['type']) ) {
@@ -207,7 +206,7 @@
                 </div>
                 <div class="colorf">
                     <h2>Color</h2>
-                    <input type="checkbox" name="color[]" id="color" value="Red" 
+                    <input type="checkbox" name="color[]" id="color" value="Red" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('Red', $_GET['color']) ) {
@@ -216,7 +215,7 @@
                         }
                     ?>>
                     <label for="color1">Red</label><br>
-                    <input type="checkbox" name="color[]" id="color" value="Orange"
+                    <input type="checkbox" name="color[]" id="color" value="Orange" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('Orange', $_GET['color']) ) {
@@ -225,7 +224,7 @@
                         }
                     ?>>
                     <label for="color2">Orange</label><br>
-                    <input type="checkbox" name="color[]" id="color" value="Yellow"
+                    <input type="checkbox" name="color[]" id="color" value="Yellow" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('Yellow', $_GET['color']) ) {
@@ -234,7 +233,7 @@
                         }
                     ?>>
                     <label for="color3">Yellow</label><br>
-                    <input type="checkbox" name="color[]" id="color" value="Green"
+                    <input type="checkbox" name="color[]" id="color" value="Green" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('Green', $_GET['color']) ) {
@@ -243,7 +242,7 @@
                         }
                     ?>>
                     <label for="color4">Green</label><br>
-                    <input type="checkbox" name="color[]" id="color" value="Blue"
+                    <input type="checkbox" name="color[]" id="color" value="Blue" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('Blue', $_GET['color']) ) {
@@ -252,7 +251,7 @@
                         }
                     ?>>
                     <label for="color5">Blue</label><br>
-                    <input type="checkbox" name="color[]" id="color" value="Indigo"
+                    <input type="checkbox" name="color[]" id="color" value="Indigo" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('Indigo', $_GET['color']) ) {
@@ -261,7 +260,7 @@
                         }
                     ?>>
                     <label for="color6">Indigo</label><br>
-                    <input type="checkbox" name="color[]" id="color" value="Violet"
+                    <input type="checkbox" name="color[]" id="color" value="Violet" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('Violet', $_GET['color']) ) {
@@ -271,7 +270,7 @@
                     ?>>
                     <label for="color7">Violet</label><br>
 
-                    <input type="checkbox" name="color[]" id="color" value="Black"
+                    <input type="checkbox" name="color[]" id="color" value="Black" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('Black', $_GET['color']) ) {
@@ -280,7 +279,7 @@
                         }
                     ?>>
                     <label for="color8">Black</label><br>
-                    <input type="checkbox" name="color[]" id="color" value="White"
+                    <input type="checkbox" name="color[]" id="color" value="White" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('White', $_GET['color']) ) {
@@ -289,7 +288,7 @@
                         }
                     ?>>
                     <label for="color9">White</label><br>
-                    <input type="checkbox" name="color[]" id="color" value="Brown"
+                    <input type="checkbox" name="color[]" id="color" value="Brown" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('Brown', $_GET['color']) ) {
@@ -298,7 +297,7 @@
                         }
                     ?>>
                     <label for="color10">Brown</label><br>
-                    <input type="checkbox" name="color[]" id="color" value="Grey"
+                    <input type="checkbox" name="color[]" id="color" value="Grey" class="chck"
                     <?php
                         if (isset($_GET['color'])) {
                             if (in_array('Grey', $_GET['color']) ) {
@@ -310,7 +309,7 @@
                 </div>
                 <div class="sizef">
                     <h2>Size</h2>
-                    <input type="checkbox" name="size[]" id="size" value="XL"
+                    <input type="checkbox" name="size[]" id="size" value="XL" class="chck"
                     <?php
                         if (isset($_GET['size'])) {
                             if (in_array('XL', $_GET['size']) ) {
@@ -318,8 +317,8 @@
                             }
                         }
                     ?>>
-                    <label for="size1">Extra Rice</label><br>
-                    <input type="checkbox" name="size[]" id="size" value="L"
+                    <label for="size1">Extra Small</label><br>
+                    <input type="checkbox" name="size[]" id="size" value="L" class="chck"
                     <?php
                         if (isset($_GET['size'])) {
                             if (in_array('L', $_GET['size']) ) {
@@ -328,7 +327,7 @@
                         }
                     ?>>
                     <label for="size1">Large</label><br>
-                    <input type="checkbox" name="size[]" id="size" value="M"
+                    <input type="checkbox" name="size[]" id="size" value="M" class="chck"
                     <?php
                         if (isset($_GET['size'])) {
                             if (in_array('M', $_GET['size']) ) {
@@ -337,7 +336,7 @@
                         }
                     ?>>
                     <label for="size2">Medium</label><br>
-                    <input type="checkbox" name="size[]" id="size" value="S"
+                    <input type="checkbox" name="size[]" id="size" value="S" class="chck"
                     <?php
                         if (isset($_GET['size'])) {
                             if (in_array('S', $_GET['size']) ) {
@@ -346,7 +345,7 @@
                         }
                     ?>>
                     <label for="size3">Small</label><br>
-                    <input type="checkbox" name="size[]" id="size" value="XS"
+                    <input type="checkbox" name="size[]" id="size" value="XS" class="chck"
                     <?php
                         if (isset($_GET['size'])) {
                             if (in_array('XS', $_GET['size']) ) {
@@ -364,7 +363,8 @@
                         
                 ?>
                 <input type="submit" value="Apply Filter" class="filtSub" name="filtsub">
-            </form>
+                <button id="uncheck" class="filtSub">Uncheck Filters</button>
+                </form>      
         </div>
         <div class="content">
             <div class="breadcrumbs">
@@ -393,5 +393,7 @@
             </div>
         </div>
     </div>
+
+    <script src="bundles/productpage.js"></script>
 </body>
 </html>

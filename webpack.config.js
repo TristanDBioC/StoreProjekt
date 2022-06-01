@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     index: './public/src/index.js',
     addproduct: './public/src/addproduct.js',
-    product: '/public/src/product.js'
+    product: './public/src/product.js',
+    productpage: './public/src/productpage.js'
   },
   output: {
     path: path.resolve(__dirname, 'public/bundles'),

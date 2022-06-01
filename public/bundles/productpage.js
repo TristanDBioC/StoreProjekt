@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./public/src/index.js":
-/*!*****************************!*\
-  !*** ./public/src/index.js ***!
-  \*****************************/
+/***/ "./public/src/productpage.js":
+/*!***********************************!*\
+  !*** ./public/src/productpage.js ***!
+  \***********************************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://storeprojekt/./public/src/index.js?");
+eval("document.getElementById('uncheck').onclick = function clear() {\r\n    let chck = document.getElementsByName('size[]')\r\n    for(var i = 0; i<chck.length; i++) {\r\n        chck[i].checked = false;\r\n    }\r\n\r\n    chck = document.getElementsByName('color[]')\r\n    for(var i = 0; i<chck.length; i++) {\r\n        chck[i].checked = false;\r\n    }\r\n    \r\n    chck = document.getElementsByName('type[]')\r\n    for(var i = 0; i<chck.length; i++) {\r\n        chck[i].checked = false;\r\n    }\r\n}\n\n//# sourceURL=webpack://storeprojekt/./public/src/productpage.js?");
 
 /***/ })
 
@@ -26,7 +26,7 @@ eval("\n\n//# sourceURL=webpack://storeprojekt/./public/src/index.js?");
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./public/src/index.js"]();
+/******/ 	__webpack_modules__["./public/src/productpage.js"]();
 /******/ 	
 /******/ })()
 ;
