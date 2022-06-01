@@ -52,6 +52,15 @@
             if (isset($_POST['submit'])) {
                 header('Location: checkout.php');
             }
+            if (isset($_POST['delete'])) {
+                if (isset($_POST['cartprodid'])) {
+                    foreach($_POST['cartprodid'] as $id) {
+                        echo $id;
+                        removefromcart($id);
+                    }
+                    header('Location: cart.php');
+                }
+            }
         }
     ?>
 
@@ -93,8 +102,7 @@
                     </div>
                 </div>
 
-                <button class="btn2" id="deleteProduct"><img src = "resources/images/trash.png" class = "delete"> &nbsp;Delete</button>
-                
+                <input type="submit" name='delete' value="Delete " class="checkOut">
                 
                 <!-- Display Table -->
                 <div class="container" id="carttable">
@@ -131,7 +139,7 @@
                                     $total += $product['total'];
                                     echo
                                     "<tr>
-                                        <td><input type='checkbox' id='product1' name='product1' value='product1'></td>
+                                        <td><input type='checkbox' id='productcart' name='cartprodid[]' value='".$product['id']."'></td>
                                         <td><a href='product.php?id=".$product['productid']."'><img src = '".$path."' style='width: 10em; float:left; margin: 20px;'>
                                         <br><br><br><b class='clearselection'>".$name."</b></a></td>
                                         <td>&#8369; ".$product['total']/$product['quantity']."</td>

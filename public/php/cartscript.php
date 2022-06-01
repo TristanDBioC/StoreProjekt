@@ -34,27 +34,36 @@ function cartexist($id) {
     $sql = "INSERT INTO `cart-product` VALUES('0','".
                         $cartid."','".$productid."','".$quantity."','".$total."')";
     $result = mysqli_query($conn, $sql);
-    subtractquantity($productid, $quantity);
+    subtractquantity($productid, $quantity, 0);
  }
 
  function removefromcart($id) {
-     // CODE LATER WHEN NEEDED
+    $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
+    $sql = "SELECT * FROM `cart-product` WHERE id='".$id."'";
+    $result = mysqli_query($conn, $sql);
+    $cartproduct = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $quantity = 0 - $cartproduct[0]['quantity'];
+    subtractquantity($cartproduct[0]['productid'], $quantity, 0);
+
+    $sql = "DELETE FROM `cart-product` WHERE id='".$id."'";
+    mysqli_query($conn, $sql);
  }
 
- function subtractquantity($prodid, $quantity) {
+ function subtractquantity($prodid, $quantity, $sold) {
     $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');
     $sql = "SELECT * FROM product WHERE id='".$prodid."'";
     $result = mysqli_query($conn, $sql);
     $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     $newquantity = $product[0]['quantity'] - $quantity;
-    $sold = $product[0]['amount_sold'] + $quantity;
+    $tsold = $product[0]['amount_sold'] + $sold;
 
 
-    $sql = "UPDATE product SET quantity='".$newquantity."' WHERE id='".$prodid."'";
+    $sql = "UPDATE product SET quantity='".$newquantity."', amount_sold='".$tsold."' WHERE id='".$prodid."'";
     $result = mysqli_query($conn, $sql);
 
  }
+
 
  function checkcredential($memberid, $prodid, $quantity) {
      $conn = mysqli_connect('localhost', 'cs36', '1234', 'tindadb');

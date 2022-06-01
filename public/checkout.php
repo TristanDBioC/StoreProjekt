@@ -64,6 +64,7 @@
                                                 $timestamp."')";
                 mysqli_query($conn, $sql);
                 $grandtotal += $total;
+                subtractquantity($productid, 0, $quantity);
             }
             $sql = "UPDATE cart SET ischeckedout='1', total='".$grandtotal."' WHERE id='".$_SESSION['user']['activecart_id']."'";
             $result = mysqli_query($conn, $sql);
