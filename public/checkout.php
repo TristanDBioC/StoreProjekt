@@ -69,7 +69,7 @@
             $sql = "UPDATE cart SET ischeckedout='1', total='".$grandtotal."' WHERE id='".$_SESSION['user']['activecart_id']."'";
             $result = mysqli_query($conn, $sql);
             
-            return $result;
+            header('Location: index.php?purchased=1');
         }
         
         function logoutUser() {
@@ -87,12 +87,13 @@
                 logoutUser();
             }
             if (isset($_POST['checkout'])) {
-                if(checkout()) {
-                    header('Location: index.php');
-                }
+                checkout();
+                    
+                
             }
         }
     ?>
+
     <div class="header">
         <div class="icon">
             <a href="index.php"><img src="resources/images/3.png" alt="Tinda" style=""></a>
@@ -208,7 +209,7 @@
             <p class="paymentHeading">Total Payment</p><p class="total">&#8369; <?php echo $total+50;?></p>
 
 
-            <input type="submit" name='checkout' value="Place Order" class="order">
+            <input type="submit" name='checkout' value="Place Order" class="order" id="order">
 
         </form>
     </div>

@@ -30,7 +30,19 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             logoutUser();
         }
+
+        if(isset($_GET['purchased'])) {
+            echo    "<div class='modalbg' id='modal'>
+                        <div class='modal'>
+                            <h1>Checkout Successful!</h1>
+                            <button id='modalClose' class='modalClose'>Close</button>
+                        </div>
+                    </div>";
+        }
+
     ?>
+
+    
 
     <div class="header">
         <div class="icon">
@@ -101,5 +113,7 @@
         </div>
         <h1 class="subbox"><a href="newsletter.php" class="sub">Subscribe to our Newsletter</a></h1>
     </div>
+
+    <style src="bundles/checkout.js"></style>
 </body>
 </html>
