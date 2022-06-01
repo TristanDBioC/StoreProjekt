@@ -71,15 +71,7 @@
                 <button class="btn2" id="deleteEvent"><img src = "resources/images/trash.png" class = "delete">Delete</button>
               
                 <!-- Checkbox -->
-                <div class="selectall">
-                    <input type="checkbox" id="selectall" name="selectall">
-                    <label for="selectall"> Select All </label>
-                </div>
-
-                <!-- Insert button to uncheck all checkboxes -->
-                <div class="clearselection" id="clear">
-                    Clear Selection
-                </div>
+              
             </div>
             
             <!-- The Modal -->

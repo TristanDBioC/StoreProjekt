@@ -92,17 +92,7 @@
     
     <div class="main_content">
         <form id='cart' class='cart' action='' method='post'>
-                    <!-- Checkbox -->
-                    <div class="selectall">
-                        <input type="checkbox" id="selectall" name="selectall">
-                        <label for="selectall"> Select All </label>
-                    </div>
-
-                    <!-- Insert button to uncheck all checkboxes -->
-                    <div class="clearselection" id="clear">
-                        Clear Selection
-                    </div>
-                </div>
+                   
 
                 <input type="submit" name='delete' value="Delete " class="checkOut">
                 
