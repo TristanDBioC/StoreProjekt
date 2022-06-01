@@ -45,7 +45,7 @@
                 <input type='submit' name='submit' value='Save' class='save'>
             </form>
             <form method='post'>
-                <input type='submit' name='becomeSeller', value='Register as Seller'>
+                <input type='submit' name='becomeSeller', value='Register as Seller' class='save'>
              </form>
             </div>";
 
