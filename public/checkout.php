@@ -152,7 +152,7 @@
                         <th>Subtotal</th>
                     </tr>
                     <?php
-                        if (count($products) == 0) {
+                        if (count($products) == 0 && !isset($_POST['checkout'])) {
                             header('Location: cart.php');
                         } else {
                             foreach ($products as $product) {
