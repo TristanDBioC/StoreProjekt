@@ -16,6 +16,7 @@
 </head>
 <body>
     <?php
+        require "php/scripts.php";
         if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
         }
@@ -27,7 +28,9 @@
         }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            logoutUser();
+            if (isset($_POST['Logout'])){
+                logoutUser();
+            }
         }
 
         function displayisNotSeller() {
