@@ -122,7 +122,7 @@
 
     <div class="header">
         <div class="icon">
-            <a href="index.php"></a><img src="resources/images/3.png" alt="Tinda" style=""></a>
+            <a href="index.php"><img src="resources/images/3.png" alt="Tinda" style=""></a>
         </div>
         <div class="hcatscont">
             <div class="hcats">
@@ -145,7 +145,7 @@
             </form>
         </div>
         <div class="cart">
-            <a href=#><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
+            <a href="cart.php"><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
         </div>   
         <div class="notifc">
             <div class="notifs">
@@ -161,7 +161,7 @@
                             <div class='acdrop'>
                                 <a href='editprofile.php'class='ep'>" . $user['username'] . "</a>
                                 <div class='dropcont'>
-                                    <a href='#' class='vp'>View Purchases</a>
+                                    <a href='purchasehistory.php' class='vp'>View Purchases</a>
                                     <form method='POST'>
                                         <input type='submit' value='Logout' name='Logout' class='logout'>
                                     </form>
