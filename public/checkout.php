@@ -122,8 +122,13 @@
         <!--<img src="resources/images/location.png" class="location">-->
         <p class="subheading">Delivery Address</p>
         <br><br>
-        <p class="userAddress">Hibbard Ave, 6200 Dumaguete City, Negros Oriental, 6200</p><br>
-        <p class="userContactNumber">09123456789</p>
+        <?php
+            $products = getallcartitems($_SESSION['user']['activecart_id']);
+            $total = 0;
+            echo
+            "    <p class='userAddress'>".$_SESSION['user']['address']."</p><br>
+                <p class='userContactNumber'>".$_SESSION['user']['contact']."</p>";
+        ?>
         <hr class="line">
         <p class="subheading">Products Ordered</p>
 
@@ -146,8 +151,6 @@
                         <th>Subtotal</th>
                     </tr>
                     <?php
-                        $products = getallcartitems($_SESSION['user']['activecart_id']);
-                        $total = 0;
                         if (count($products) == 0) {
                             header('Location: cart.php');
                         } else {
