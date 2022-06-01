@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="stylesheets/dropdown.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/images/8.png" />
-    <title>Edit Profile | Tinda</title>
+    <title>Purchase History | Tinda</title>
 </head>
 <body>
 <?php

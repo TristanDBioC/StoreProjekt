@@ -88,7 +88,7 @@
 
 <div class="header">
     <div class="icon">
-            <a href="index.php"><img src="resources/images/5.png" alt="Tinda" style=""></a>
+            <a href="index.php"><img src="resources/images/3.png" alt="Tinda" style=""></a>
     </div>
         
         <?php
