@@ -114,6 +114,6 @@
         <h1 class="subbox"><a href="newsletter.php" class="sub">Subscribe to our Newsletter</a></h1>
     </div>
 
-    <style src="bundles/checkout.js"></style>
+    <script src="bundles/checkout.js"></script>
 </body>
 </html>

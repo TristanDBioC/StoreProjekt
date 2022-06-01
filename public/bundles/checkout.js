@@ -15,7 +15,7 @@
   \********************************/
 /***/ (() => {
 
-eval("var modal = document.getElementById('modal')\r\n\r\n\r\ndocument.getElementById('modalClose').addEventListener('click', (e) => {\r\n    e.preventDefault()\r\n\r\n    modal.style.display = 'none'\r\n})\n\n//# sourceURL=webpack://storeprojekt/./public/src/checkout.js?");
+eval("var modal = document.getElementById('modal')\r\n\r\n\r\ndocument.getElementById('modalClose').addEventListener('click', (e) => {\r\n    e.preventDefault()\r\n\r\n    window.location = 'index.php'\r\n})\r\n\r\nwindow.onclick = function(event) {\r\n    if (event.target == modal) {\r\n        window.location = 'index.php'\r\n    }\r\n  }\n\n//# sourceURL=webpack://storeprojekt/./public/src/checkout.js?");
 
 /***/ })
 

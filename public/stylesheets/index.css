@@ -64,6 +64,7 @@
 /* Modal */
 
 .modalbg {
+    display: block;
     position: fixed; /* Stay in place */
     z-index: 5; /* Sit on top */
     left: 0;
@@ -73,34 +74,36 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+}
   
-  .modal {
+.modal {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border-radius: 8px;
     width: 25%; /* Could be more or less, depending on screen size */
     text-align: center;
-  }
+}
   
-  .modalClose {
+.modalClose {
     background-color: #FF6061;
     color: white;
-  
+
     border-radius: .375em;
     border: 2px solid white;
-  
+
+    margin-top: 1.5em;
+    margin-bottom: -.5em;
     padding: .375em 1em;
-  
+
     font-size: 16px;
     font-weight: bold;
-  }
-  
-  .modalClose:hover {
+}
+
+.modalClose:hover {
     background-color: white;
     border: 2px solid black;
     color: black;
-  
+
     cursor: pointer;
-  }
+}
