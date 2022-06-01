@@ -37,6 +37,8 @@
 
         if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
+        } else {
+            header('Location: signin.php');
         }
 
         function logoutUser() {

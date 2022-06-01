@@ -23,6 +23,8 @@
             if ($_SESSION['user']['isseller'] == 0) {
                 header('Location: editprofile.php');
             }
+        } else {
+            header('Location: signin.php');
         }
 
         function logoutUser() {
