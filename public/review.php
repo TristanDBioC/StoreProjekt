@@ -131,12 +131,7 @@
         <div class="cart">
             <a href="cart.php"><img src="resources/images/cart.png" alt="Cart" class="carti"><a>
         </div>   
-        <div class="notifc">
-            <div class="notifs">
-                <img src="resources/images/notifs.png" alt="Notifications" class="notifi">
-                <p class="notifp">Notifications</p>
-            </div>
-        </div>
+        
         <?php
             if(!isset($_SESSION['user'])) {
                 echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';

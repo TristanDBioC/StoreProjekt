@@ -44,12 +44,6 @@
         <div class="icon">
             <a href="index.php"><img src="resources/images/5.png" alt="Tinda" style=""></a>
         </div>
-        <div class="notifc">
-            <div class="notifs">
-                <img src="resources/images/notifs.png" alt="Notifications" class="notifi">
-                <p class="notifp">Notifications</p>
-            </div>
-        </div>
         <?php
             if(!isset($user)) {
                 echo '<div class="accs"><a href="signup.php"class="su">Sign Up</a> | <a href="signin.php" class="si">Sign In</a></div>';
