@@ -382,6 +382,7 @@
                     foreach($products as $product) {
                         echo
                         "<div class='item'>
+                            <a href='product.php?id=".$product['id']."'>
                             <div class='itemPic'>
                                 <img src='".$product['imagepath']."' alt='Placeholder'>
                             </div>
@@ -391,6 +392,7 @@
                                 <p class='price'>Price: &#8369; ".$product['price']."</p>
                                 <p class='rating'>Rating: ".$product['rating']."/5</p>
                             </div>
+                            </a>
                         </div>";
                     }
                 ?>
