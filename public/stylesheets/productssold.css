@@ -206,7 +206,24 @@ html * {
     margin-top: 10px;
     overflow: scroll;
     width: 100%;
-    height: 77%;
+    height: 600px;
+  }
+
+  .container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .container::-webkit-scrollbar-track {
+      background: #eaeaea;
+  }
+
+  .container::-webkit-scrollbar-thumb {
+      background: #fc7c7c;
+  }
+
+  .container::-webkit-scrollbar-thumb:hover {
+      background: #FF6061;
   }
   
   .products, .productsdata {
