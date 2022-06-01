@@ -16,6 +16,7 @@
 </head>
 <body>
     <?php
+        require "php/scripts.php";
         if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
         }
@@ -27,7 +28,9 @@
         }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            logoutUser();
+            if (isset($_POST['Logout'])){
+                logoutUser();
+            }
         }
 
         function displayisNotSeller() {
@@ -85,8 +88,8 @@
             <a href="addproduct.php">Sell on Tinda</a>  
         </div>
         <div class="searchbar">
-            <form>
-            <input type="text" placeholder="  Look for great finds on Tinda!">
+            <form methpd='get' action='productpage.php'>
+            <input type="text" name='search' placeholder="  Look for great finds on Tinda!">
             <button type="submit" class="search"><img src="resources/images/search.png" alt=""></button>
             </form>
         </div>

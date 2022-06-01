@@ -51,8 +51,8 @@
             <a href="addproduct.php">Sell on Tinda</a>  
         </div>
         <div class="searchbar">
-            <form>
-            <input type="text" placeholder="Look for great finds on Tinda!">
+            <form method='get' action='productpage.php'>
+            <input type="text" name='search' laceholder="Look for great finds on Tinda!">
             <button type="submit" class="search"><img src="resources/images/search.png" alt=""></button>
             </form>
         </div>
