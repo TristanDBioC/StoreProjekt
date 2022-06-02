@@ -13,19 +13,24 @@ function filterbycategory(&$products, $category) {
     foreach ($exclude as $i) {
         unset($products[$i]);
     }
+    $products = array_values($products); 
 }
 
 function filterbytype(&$products, $type) {
     $exclude = [];
+    echo count($products);
+    print_r($products);
     for($i=0;$i<count($products);$i++) {
+        echo "hello <br>";
         if (!in_array($products[$i]['type'], $type)) {
             $exclude[] = $i;
         }
+        
     }
     foreach ($exclude as $i) {
         unset($products[$i]);
     }
-    $products = array_values($products);
+    $products = array_values($products); 
 }
 
 function filterbycolor(&$products, $color) {
