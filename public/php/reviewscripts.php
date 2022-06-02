@@ -16,7 +16,11 @@ function averagerating($reviews) {
         $total += (float)$review['rating'];
         $totalcount += 1;
     }
-    return number_format((float)$total/$totalcount,1,'.','');
+    if ($totalcount == 0) {
+        return number_format((float)$total,1,'.','');
+    } else {
+        return number_format((float)$total/$totalcount,1,'.','');
+    }
 }
 
 function fetchreviewername(&$reviews) {

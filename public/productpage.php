@@ -152,7 +152,7 @@
             } else {
                 echo    "<div class='accs'>
                             <div class='acdrop'>
-                                <a href='editprofile.php'class='ep'>" . $user['username'] . "</a>
+                                <a href='editprofile.php'class='ep'>" . $_SESSION['user']['username'] . "</a>
                                 <div class='dropcont'>
                                     <a href='purchasehistory.php' class='vp'>View Purchases</a>
                                     <form method='POST'>
