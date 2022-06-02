@@ -68,38 +68,20 @@
         <p class='subheading'>My Products</p>
                 <br>
                 <a href = "addproduct.php"><button class="btn">Add Product +</button></a>
-                <button class="btn2" id="deleteEvent"><img src = "resources/images/trash.png" class = "delete">Delete</button>
-              
-                <!-- Checkbox -->
-              
-            </div>
-            
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <p>Are you sure you want to delete these events? This will also delete all users' attendance for the event.</p>
-                    <div class="modalbuttons">
-                        <button class='confirmDelete'id='confirmDelete'>Yes</button>
-                        <button class='cancelDelete' id='cancelDelete'>Cancel</button>
-                    </div>
-                </div>
-
-            </div>
+                
 
             <!-- Display Table -->
             <div class="container" id="productstable">
                 <table class="products" id="products">
                     <colgroup>
-                        <col class="tick">
+                        
                         <col class="Product">
                         <col class="Price">
                         <col class="QTY">
                         <col class="Sales">
                     </colgroup>
                     <tr>
-                        <th></th>
+                        
                         <th>Product Name</th>
                         <th>Price</th>
                         <th>Stocks</th>
@@ -111,7 +93,7 @@
                             echo
                             "<tbody id='productsdata'>
                                 <tr>
-                                    <td colspan='5' class='loading_message'><br><br><br>NO DATA FOUND</td>
+                                    <td colspan='4' class='loading_message'><br><br><br>NO DATA FOUND</td>
                                 </tr>
                             </tbody>";
                         } else {
@@ -119,7 +101,7 @@
                             foreach ($products as $product) {
                                 echo
                                 "<tr>
-                                <td><input type='checkbox' id='product1' name='product1' value='".$product['id']."'></td>
+                                
                                 <td><a href='product.php?id=".$product['id']."'><img src = '".$product['imagepath']."' style='width: 10em; float:left; margin-top: 10px;'>
                                 <br><br><br>
                                 <b class='clearselection'style='margin-left: 20px;'>".$product['name']."</b></a></td>
