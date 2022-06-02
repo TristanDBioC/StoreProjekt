@@ -55,9 +55,9 @@
             <div class="hcats">
                 <p class="drop">Categories</p>
                 <div class="dropcont">
-                    <a href="men.php">Men</a>
-                    <a href="women.php">Women</a>
-                    <a href="children.php">Children</a>
+                    <a href="productpage.php?category=men">Men</a>
+                    <a href="productpage.php?category=women">Women</a>
+                    <a href="productpage.php?category=children">Children</a>
                 </div>
             </div>
         </div>
