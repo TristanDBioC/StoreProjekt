@@ -12,7 +12,7 @@
 <body>
     <a href=""><img src="resources/images/7.png" class="logo"></a>
     
-    <form id="newsletter" class="newsletter" action="" method="post">
+    <form id="newsletter" class="newsletter" action="index.php" method="post">
         <p class="header">Subscribe to our newsletter</p>
 
         <input required type="email" name="email" value="" class="form-input" placeholder="Enter your email address" 
@@ -35,18 +35,10 @@
             Monthly
         </label>
 
-        <input type="submit" name="" value="SUBSCRIBE">
+        <input type="submit" name="submit" value="SUBSCRIBE">
     </form>
 
-    <?php
-        if($_SERVER["REQUEST_METHOD"] == "POST") {
-            sendEmail($_POST['email'], $_POST['subscription']);
-        }
-        function sendEmail($email, $freq) {
-            mail($email, "Tinda News Letter: ".$freq,"Kumain ka na ba?");
-        }
-
-    ?>
+    
 
 </body>
 </html>

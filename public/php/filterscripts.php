@@ -18,10 +18,9 @@ function filterbycategory(&$products, $category) {
 
 function filterbytype(&$products, $type) {
     $exclude = [];
-    echo count($products);
-    print_r($products);
+    
     for($i=0;$i<count($products);$i++) {
-        echo "hello <br>";
+        
         if (!in_array($products[$i]['type'], $type)) {
             $exclude[] = $i;
         }
