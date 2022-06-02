@@ -10,10 +10,13 @@ function getreviews($productid) {
 
 function averagerating($reviews) {
     $total = 0;
+    $totalcount = 0;
+
     foreach($reviews as $review) {
         $total += (float)$review['rating'];
+        $totalcount += 1;
     }
-    return number_format((float)$total,1,'.','');
+    return number_format((float)$total/$totalcount,1,'.','');
 }
 
 function fetchreviewername(&$reviews) {
