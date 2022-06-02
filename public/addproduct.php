@@ -41,7 +41,7 @@
             $sellerid = $_SESSION['user']['id'];
             $name = $_POST['prodname'];
             $desc = $_POST['desc'];
-            $price = substr($_POST['price'],3);
+            $price = str_replace(',','',substr($_POST['price'],3));
             $quantity = $_POST['stock'];
             $imagepath = $imagepatharray[0];
             $category = $_POST['category'];
