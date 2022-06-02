@@ -317,7 +317,7 @@
                             }
                         }
                     ?>>
-                    <label for="size1">Extra Small</label><br>
+                    <label for="size1">Extra Large</label><br>
                     <input type="checkbox" name="size[]" id="size" value="L" class="chck"
                     <?php
                         if (isset($_GET['size'])) {
