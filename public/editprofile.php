@@ -39,9 +39,9 @@
             <form id='editprofile' class='editprofile' action='' method='post'>
                 <p class='subheading'>Edit profile</p>
                 <p class='caption'>General information</p>
-                <input required='required' placeholder='Displayed Name' type='text' class='number' name='displayname' value=''><br><br>
-                <input required='required' placeholder='Address' type='text' class='address' name='address' value=''><br>
-                <input required='required' placeholder='Contact Number' type='number' class='number' name='number' value=''><br>
+                <input required='required' placeholder='Displayed Name' type='text' class='number' name='displayname' value='".$_SESSION['user']['displayname']."'><br><br>
+                <input required='required' placeholder='Address' type='text' class='address' name='address' value='".$_SESSION['user']['address']."'><br>
+                <input required='required' placeholder='Contact Number' type='number' class='number' name='number' value='".$_SESSION['user']['contact']."'><br>
                 <input type='submit' name='submit' value='Save' class='save'>
             </form>
             <form method='post'>
@@ -57,11 +57,11 @@
             <form id='editprofile' class='editprofile' action='' method='post'>
                 <p class='subheading'>Edit profile</p>
                 <p class='caption'>General information</p>
-                <input required='required' placeholder='Displayed Name' type='text' class='number' name='displayname' value=''><br><br>
-                <input required='required' placeholder='Address' type='text' class='address' name='address' value=''><br>
-                <input required='required' placeholder='Contact Number' type='number' class='number' name='number' value=''><br>
+                <input required='required' placeholder='Displayed Name' type='text' class='number' name='displayname' value='".$_SESSION['user']['displayname']."'><br><br>
+                <input required='required' placeholder='Address' type='text' class='address' name='address' value='".$_SESSION['user']['address']."'><br>
+                <input required='required' placeholder='Contact Number' type='number' class='number' name='number' value='".$_SESSION['user']['contact']."'><br>
                 <p class='subheading'>Seller information</p>
-                <input required='required' placeholder='Seller Name' type='text' class='sellerName' name='sellername' value=''><br><br><br><br>  
+                <input required='required' placeholder='Seller Name' type='text' class='sellerName' name='sellername' value='".$_SESSION['user']['sellername']."'><br><br><br><br>  
                 <a href='productssold.php'>View my Products > </a><br>
                 <input type='submit' name='submit' value='Save' class='save'>
             </form>
@@ -121,9 +121,9 @@
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST['submit'])) {
                 if ($_SESSION['user']['isseller'] == 0) {
-                    updateMember($user['username'],$_POST['number'],$_POST['displayname'],$_POST['displayname']);
+                    updateMember($user['username'],$_POST['number'],$_POST['displayname'],$_POST['displayname'], $_POST['address']);
                 } else {
-                    updateMember($user['username'],$_POST['number'],$_POST['displayname'],$_POST['sellername']);
+                    updateMember($user['username'],$_POST['number'],$_POST['displayname'],$_POST['sellername'], $_POST['address']);
                 }
             }
             if (isset($_POST['becomeSeller'])) {
